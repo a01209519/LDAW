@@ -13,6 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/', 'integrante');
+
+Route::view('/jorge', 'jorge');
+
+Route::view('/victor', 'victor');
+
+Route::view('/lalo', 'lalo');
+
+Route::view('/randy', 'randy');
+
+
+
