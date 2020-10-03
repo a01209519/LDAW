@@ -21,6 +21,7 @@
         @show
         
     </head>
+    @section("navbar")
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
       <!-- Brand -->
       <a class="navbar-brand" href="/">STARMEN</a>
@@ -37,7 +38,7 @@
             <a class="nav-link" href="/integrante">Jorge López</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Victor Avila</a>
+            <a class="nav-link" href="/victor">Victor Avila</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Eduardo Concha</a>
@@ -50,6 +51,7 @@
     </nav>
 
     </nav>
+    @show
     <body>
         @yield('main_content')
     </body>
