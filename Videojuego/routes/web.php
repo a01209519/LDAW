@@ -17,16 +17,9 @@ Route::view('/', 'integrante');
 
 Route::view('/jorge', 'jorge');
 
-Route::get('/students',function(){
-	$students = [
-		"1"=>[
-			"nombre"=>"Victor Manuel",
-			"apellidos"=> "Ávila Hernández"
-		]
-	];
-	return view('students',['students'=>$students]);
-});
+Route::get('/students',"Students@index");
 
+//Route::get('/students2',"Students@index");
 Route::view('/victor', 'victor');
 
 Route::view('/lalo', 'lalo');
