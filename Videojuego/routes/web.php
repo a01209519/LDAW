@@ -17,9 +17,8 @@ Route::view('/', 'integrante');
 
 Route::view('/jorge', 'jorge');
 
-Route::get('/students',"Students@index");
+Route::get('/students','Students@index');
 
-//Route::get('/students2',"Students@index");
 Route::view('/victor', 'victor');
 
 Route::view('/lalo', 'lalo');

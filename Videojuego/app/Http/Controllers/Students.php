@@ -11,15 +11,18 @@ class Students extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $students = [
-        "1"=>[
-            "nombre"=>"Victor Manuel",
-            "apellidos"=> "Ávila Hernández"
-        ]
-    ];
+    private function readStudents(){
+        //Cargar archvivo
+        $filePath = storage_path("app/json/datos.json");
+        if ($data = file_get_contents($filePath)){
+            return json_decode($data,true);
+        } return false;
+        
+    }
     public function index()
     {
-        return view('students',['students'=>$this->students]);
+        $students=$this->readStudents();       
+       return view('Students',["students"=>$students]);
     }
 
     /**
