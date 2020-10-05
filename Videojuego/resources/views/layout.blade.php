@@ -46,6 +46,9 @@
           <li class="nav-item">
             <a class="nav-link" href="#">Randy Orton</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/students">Students</a>
+          </li>
         </ul>
       </div>
     </nav>
