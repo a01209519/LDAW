@@ -11,10 +11,10 @@
 			<h1> Victor </h1>
 		</div>
 		<div class="col-md-3">
-			<h1> Randy </h1>
+			<h1> Lalo </h1>
 		</div>
 		<div class="col-md-3">
-			<h1> Lalo </h1>
+			<h1> Randy </h1>
 		</div>
 	</div>
 

@@ -21,7 +21,8 @@ class Students extends Controller
     }
     public function index()
     {
-        $students=$this->readStudents();       
+        $students=$this->readStudents();  
+        $var = 1;  
        return view('Students',["students"=>$students]);
     }
 
@@ -55,6 +56,8 @@ class Students extends Controller
     public function show($id)
     {
         //
+        $students=$this->readStudents();
+        return view("student",["students"=>$students[$id]]);
     }
 
     /**

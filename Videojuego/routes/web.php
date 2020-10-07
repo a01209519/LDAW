@@ -19,7 +19,7 @@ Route::view('/jorge', 'jorge');
 
 Route::get('/students','Students@index');
 
-Route::view('/victor', 'victor');
+Route::get('/student/{id}', "Students@show");
 
 Route::view('/lalo', 'lalo');
 
