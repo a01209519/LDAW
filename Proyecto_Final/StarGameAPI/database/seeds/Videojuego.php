@@ -17,5 +17,33 @@ class Videojuego extends Seeder
             'id_titulo' => '1',
             'id_condicion' => '1',
         ]);
+
+        DB::table('videojuego')->insert([
+            'id_usuario' => '2',
+            'id_plataforma' => '1',
+            'id_titulo' => '3',
+            'id_condicion' => '2',
+        ]);
+
+        DB::table('videojuego')->insert([
+            'id_usuario' => '2',
+            'id_plataforma' => '1',
+            'id_titulo' => '5',
+            'id_condicion' => '2',
+        ]);
+
+        DB::table('videojuego')->insert([
+            'id_usuario' => '1',
+            'id_plataforma' => '1',
+            'id_titulo' => '2',
+            'id_condicion' => '3',
+        ]);
+
+        DB::table('videojuego')->insert([
+            'id_usuario' => '1',
+            'id_plataforma' => '2',
+            'id_titulo' => '4',
+            'id_condicion' => '3',
+        ]);
     }
 }

@@ -12,15 +12,14 @@ class Rol extends Seeder
     public function run()
     {
         DB::table('rol')->insert([
-            'nombre' => 'Usuario registrado'
-            'descripcion' => null,
+            'nombre' => 'Usuario registrado',
+            'descripcion' => 'Uusairo Registrado',
         ]);
 
         DB::table('rol')->insert([
-            'nombre' => 'Administrador'
-            'descripcion' => null,
+            'nombre' => 'Administrador',
+            'descripcion' => 'Usuario admin',
         ]);
-
 
     }
 }

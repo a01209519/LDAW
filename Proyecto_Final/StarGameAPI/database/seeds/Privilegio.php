@@ -13,22 +13,22 @@ class Privilegio extends Seeder
     {
          DB::table('privilegios')->insert([
             'nombre' => 'Registrar Videojuego',
-            'descripcion' => null,
+            'descripcion' => 'Poder registatr un jeugo neuvo',
         ]);
 
          DB::table('privilegios')->insert([
             'nombre' => 'Realizar Oferta',
-            'descripcion' => null,
+            'descripcion' => 'Ofertar por jeugo',
         ]);
 
          DB::table('privilegios')->insert([
             'nombre' => 'Registrar Titulo',
-            'descripcion' => null,
+            'descripcion' => 'Registrar titulo nuevo',
         ]);
 
          DB::table('privilegios')->insert([
             'nombre' => 'Registrar Plataforma',
-            'descripcion' => null,
+            'descripcion' => 'Registrar Plataforma',
         ]);
     }
 }
