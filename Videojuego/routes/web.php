@@ -15,15 +15,15 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/', 'integrante');
 
-Route::view('/jorge', 'jorge');
+//Route::view('/jorge', 'jorge');
 
-Route::get('/students','Students@index');
+//Route::get('/students','Students@index');
 
-Route::get('/student/{id}', "Students@show");
+//Route::get('/student/{id}', "Students@show");
 
-Route::view('/lalo', 'lalo');
-
-Route::view('/randy', 'randy');
+//Route::view('/lalo', 'lalo');
+Route::resource('students','Students');
+//Route::view('/randy', 'randy');
 
 
 

@@ -35,16 +35,16 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/student/1">Jorge López</a>
+            <a class="nav-link" href="/students/1">Jorge López</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/student/2">Victor Avila</a>
+            <a class="nav-link" href="/students/2">Victor Avila</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/student/3">Eduardo Concha</a>
+            <a class="nav-link" href="/Students/3">Eduardo Concha</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/student/4">Randy Orton</a>
+            <a class="nav-link" href="/students/4">Randy Orton</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/students">Students</a>

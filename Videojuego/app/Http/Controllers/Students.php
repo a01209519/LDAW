@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class Students extends Controller
 {
@@ -21,9 +22,9 @@ class Students extends Controller
     }
     public function index()
     {
-        $students=$this->readStudents();  
+        $students=Http::get('http://127.0.0.1:8001/api/students');  
         $var = 1;  
-       return view('Students',["students"=>$students]);
+       return view('Students',["students"=>$students->json()]);
     }
 
     /**
@@ -34,6 +35,7 @@ class Students extends Controller
     public function create()
     {
         //
+        echo "create";
     }
 
     /**
@@ -56,8 +58,11 @@ class Students extends Controller
     public function show($id)
     {
         //
-        $students=$this->readStudents();
-        return view("student",["students"=>$students[$id]]);
+        /*$students=$this->readStudents();*/
+        $students=Http::get('http://127.0.0.1:8001/api/students/'.$id);
+
+        return view("student",["students"=>$students]);
+        //echo $students;
     }
 
     /**
@@ -69,6 +74,7 @@ class Students extends Controller
     public function edit($id)
     {
         //
+        echo "edit";
     }
 
     /**
