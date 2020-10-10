@@ -12,8 +12,23 @@ class Privilegio extends Seeder
     public function run()
     {
          DB::table('privilegios')->insert([
-            'nombre' => Str::random(10),
-            'descripcion' => Str::random(10,null),
+            'nombre' => 'Registrar Videojuego',
+            'descripcion' => null,
+        ]);
+
+         DB::table('privilegios')->insert([
+            'nombre' => 'Realizar Oferta',
+            'descripcion' => null,
+        ]);
+
+         DB::table('privilegios')->insert([
+            'nombre' => 'Registrar Titulo',
+            'descripcion' => null,
+        ]);
+
+         DB::table('privilegios')->insert([
+            'nombre' => 'Registrar Plataforma',
+            'descripcion' => null,
         ]);
     }
 }

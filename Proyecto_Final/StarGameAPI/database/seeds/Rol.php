@@ -12,8 +12,15 @@ class Rol extends Seeder
     public function run()
     {
         DB::table('rol')->insert([
-            'nombre' => Str::random(10),
-            'descripcion' => Str::random(10,null),
+            'nombre' => 'Usuario registrado'
+            'descripcion' => null,
         ]);
+
+        DB::table('rol')->insert([
+            'nombre' => 'Administrador'
+            'descripcion' => null,
+        ]);
+
+
     }
 }

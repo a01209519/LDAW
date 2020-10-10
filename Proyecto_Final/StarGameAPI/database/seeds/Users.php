@@ -12,11 +12,20 @@ class Users extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'nombre' => Str::random(10),
+            'nombre' => 'Jorge Lopez',
             'telefono' => '44256325',
-            'correo' => Str::random(10).'@gmail.com',
+            'correo' => 'jorge_lopez@gmail.com',
             'correo_verificado' => NULL,
-            'password' => Hash::make('password'),
+            'password' => 'password',
+            'remember_token' => Hash::make('password'),
+        ]);
+
+        DB::table('users')->insert([
+            'nombre' => 'Victor Avila',
+            'telefono' => '9932394838',
+            'correo' => 'victor_avila@gmail.com',
+            'correo_verificado' => NULL,
+            'password' => '123',
             'remember_token' => Hash::make('password'),
         ]);
     }
