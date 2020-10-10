@@ -12,7 +12,11 @@ class TipoResena extends Seeder
     public function run()
     {
        DB::table('tiporesena')->insert([
-            'nombre' => Str::random(10),
+            'nombre' => 'Positiva',
+        ]);
+
+       DB::table('tiporesena')->insert([
+            'nombre' => 'Negativa',
         ]);
     }
 }

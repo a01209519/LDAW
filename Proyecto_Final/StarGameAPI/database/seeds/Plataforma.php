@@ -12,8 +12,18 @@ class Plataforma extends Seeder
     public function run()
     {
         DB::table('plataforma')->insert([
-            'nombre' => Str::random(10),
-            'descripcion' => Str::random(10,null),
+            'nombre' => 'Xbox One',
+            'descripcion' => 'Consola de videojuego de Microsoft que es reproductora de videojuegos y video.',
+        ]);
+
+        DB::table('plataforma')->insert([
+            'nombre' => 'Play Station 4',
+            'descripcion' => 'Consola de videojuego de Sony que es reproductora de videojuegos y video.',
+        ]);
+
+        DB::table('plataforma')->insert([
+            'nombre' => 'Nintendo Switch',
+            'descripcion' => 'Consola de videojuego de Nintendo, es consola portatil.',
         ]);
     }
 }

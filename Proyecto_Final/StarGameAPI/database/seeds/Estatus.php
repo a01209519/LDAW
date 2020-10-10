@@ -12,7 +12,27 @@ class Estatus extends Seeder
     public function run()
     {
         DB::table('estatus')->insert([
-            'nombre' => Str::random(10),
+            'nombre' => 'Aceptado',
+        ]);
+
+        DB::table('estatus')->insert([
+            'nombre' => 'Rechazado',
+        ]);
+
+        DB::table('estatus')->insert([
+            'nombre' => 'Espera',
+        ]);
+
+        DB::table('estatus')->insert([
+            'nombre' => 'Ofertado',
+        ]);
+
+        DB::table('estatus')->insert([
+            'nombre' => 'Recibido',
+        ]);
+
+        DB::table('estatus')->insert([
+            'nombre' => 'Leido',
         ]);
     }
 }
