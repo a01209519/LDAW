@@ -13,7 +13,7 @@ class StudentsApi extends Controller
      */
     private function readStudents(){
         //Cargar archvivo
-        $filePath = storage_path("app/json/datos.json");
+        $filePath = storage_path("app\json\datos.json");
         if ($data = file_get_contents($filePath)){
             return json_decode($data,true);
         } return false;
