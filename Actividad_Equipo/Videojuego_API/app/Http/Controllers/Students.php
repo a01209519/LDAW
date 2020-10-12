@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Collection;
 
+// Importar el modelo
+use App\Models\Integrante;
 
 class Students extends Controller
 {
@@ -23,9 +27,20 @@ class Students extends Controller
     }
     public function index()
     {
-        $students=$this->readStudents();  
-        $var = 1;  
-       return view('Students',["students"=>$students]);
+        //$students=$this->readStudents();  
+        //$var = 1;  
+        $students = DB::table('integrantes')->select('id','nombre')->get();
+        //$student = DB::table('integrantes')->select('id','nombre')->get();
+        //json_encode($students);
+        $students = json_encode($students,true); 
+        //$students =$students->toArray();
+        //$students = json_decode($students,true); 
+        var_dump($students);
+        //var_dump($student);
+        //echo($students);
+
+        //return view('Students',["students"=>$students]);
+        //echo ($students);
     }
 
     /**
