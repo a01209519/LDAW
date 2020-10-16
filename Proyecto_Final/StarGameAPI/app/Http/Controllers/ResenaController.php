@@ -2,27 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Resena;
 use Illuminate\Http\Request;
 
-class StudentsApi extends Controller
+class ResenaController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    private function readStudents(){
-        //Cargar archvivo
-        $filePath = storage_path("app\json\datos.json");
-        if ($data = file_get_contents($filePath)){
-            return json_decode($data,true);
-        } return false;
-        
-    }
     public function index()
     {
         //
-        return response()->json($this->readStudents());
     }
 
     /**
@@ -39,24 +31,22 @@ class StudentsApi extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Resena  $resena
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Resena $resena)
     {
         //
-        $student = $this->readStudents();
-        return response()->json($student[$id]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Resena  $resena
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Resena $resena)
     {
         //
     }
@@ -64,12 +54,11 @@ class StudentsApi extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Resena  $resena
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Resena $resena)
     {
         //
-        echo "Destruir".$id;
     }
 }
