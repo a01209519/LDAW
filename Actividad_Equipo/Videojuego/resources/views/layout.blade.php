@@ -24,7 +24,7 @@
     @section("navbar")
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
       <!-- Brand -->
-      <a class="navbar-brand" href="/">STARMEN</a>
+      <a class="navbar-brand" href="{{route('students.index')}}">STARMEN</a>
 
       <!-- Toggler/collapsibe Button -->
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -35,19 +35,6 @@
       <div class="collapse navbar-collapse" id="collapsibleNavbar">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link" href="/students/1">Jorge López</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/students/2">Victor Avila</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/Students/3">Eduardo Concha</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/students/4">Randy Orton</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/students">Students</a>
           </li>
         </ul>
       </div>
@@ -56,6 +43,7 @@
     </nav>
     @show
     <body>
+        @yield('Titulo')
         @yield('main_content')
     </body>
 

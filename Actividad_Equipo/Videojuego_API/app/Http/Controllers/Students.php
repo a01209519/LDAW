@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-use App\Estudiante;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class Students extends Controller
 {
@@ -23,13 +24,12 @@ class Students extends Controller
     }
     public function index()
     {
-        //Mandamos a llamar la función del modelo.
-        $students = Estudiante::getStudents();
-        //$var = 1;  
-        //dd($students);
-       return view('Students',["students"=>$students]);
-        //$students = json_decode($students,true);
-        //return view('Students',["students"=>$students]);
+        /*$students=$this->readStudents();  
+        $var = 1;  */
+       
+         $students = DB::table('students')->get();
+         $students=json_decode($students,true);
+         return view('Students',["students"=>$students]);
     }
 
     /**
@@ -40,7 +40,7 @@ class Students extends Controller
     public function create()
     {
         //
-        return view('student_form');
+        echo "create";
     }
 
     /**
@@ -52,14 +52,9 @@ class Students extends Controller
     public function store(Request $request)
     {
         //
-        //$students=Http::post('http://127.0.0.1:8000/api/students',$request->all());
-        // Mandamos los datos a la funcion sendStudent del modelo
-        Estudiante::sendStudent($request);
-        $students = Estudiante::getStudents();
-        return view('Students',["students"=>$students]);
     }
 
-    /**x
+    /**
      * Display the specified resource.
      *
      * @param  int  $id
@@ -68,11 +63,8 @@ class Students extends Controller
     public function show($id)
     {
         //
-        /*$students=$this->readStudents();*/
-        $student = Estudiante::getStudent($id);
-
-        return view("student",["students"=>$student]);
-        //echo $students;
+        $students=$this->readStudents();
+        return view("student",["students"=>$students[$id]]);
     }
 
     /**
@@ -97,7 +89,6 @@ class Students extends Controller
     public function update(Request $request, $id)
     {
         //
-        echo "SI";
     }
 
     /**

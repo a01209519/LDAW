@@ -4,9 +4,9 @@
 <?php
 foreach($students as $id => $student){ 
 ?>
-<div class="">
+<div class="container">
 	<strong>Nombre: </strong><?php echo $student["nombre"]?><br>
-	
+	<strong> Apellido: </strong> <?php echo $student["apellidos"]?>
 	<hr/>
 </div>
 <?php }
