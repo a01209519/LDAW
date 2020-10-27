@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,24 +18,24 @@ class Videojuego extends Model{
     ****************************************/
 
 	public function plataforma(){
-		$this->belongsTo("App\Models\Plataforma");
+		return $this->belongsTo("App\Http\Models\Plataforma");
 	}
 
 	public function condicion(){
-		$this->belongsTo("App\Models\Condicion");
+		return $this->belongsTo("App\Http\Models\Condicion");
 	}
 
 	public function oferta(){
 		//$this->hasMany("App\Models\Oferta");
-		$this->belongsToMany("App\Models\Oferta");
+		return $this->belongsToMany("App\Http\Models\Oferta");
 	}
 
 	public function titulo(){
-		$this->belongsTo("App\Models\Titulo");
+		return $this->belongsTo("App\Http\Models\Titulo");
 	}
 
 	public function user(){
-		$this->belongsTo("App\Models\User");
+		return $this->belongsTo("App\Http\Models\User");
 	}
 
 }

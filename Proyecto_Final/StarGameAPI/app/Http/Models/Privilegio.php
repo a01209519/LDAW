@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,7 +18,7 @@ class Privilegio extends Model{
 		REELACIONES DEL MODELO
     ****************************************/
 
-	public function videojuego(){
-		$this->belongsTo("App\Models\Videojuego")
+	public function Rol(){
+		return $this->belongsToMany(Rol::class, 'rolprivilegio', 'id_privilegio', 'id_rol');
 	}
 }

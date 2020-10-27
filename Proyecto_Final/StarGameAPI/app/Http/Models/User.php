@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Http\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable
 {
     use Notifiable;
+
+    protected $table = 'users';
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +38,13 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     public function titulo(){
+        return $this->belongsToMany(Titulo::class, 'favorito', 'id_usuario', 'id_titulo');
+    }
+
+    public function rol(){
+        return $this->belongsToMany(Rol::class, 'userrol', 'id_user', 'id_rol');
+    }
+
 }

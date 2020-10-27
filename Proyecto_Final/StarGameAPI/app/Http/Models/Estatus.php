@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +19,6 @@ class Estatus extends Model
     ****************************************/
 
 	public function videojuego(){
-		$this->belongsTo("App\Models\Videojuego")
+		return $this->hasMany("App\Models\Videojuego");
 	}
 }

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Oferta extends Model{
+class Oferta extends Model{//pivot
     
     /***************************************
 		CONFIGURACIÓN DEL MODELO
@@ -19,10 +19,10 @@ class Oferta extends Model{
     ****************************************/
 
 	public function estatus(){
-		$this->hasMany("App\Models\Estatus");
+		return $this->hasMany("App\Models\Estatus");
 	}
 
 	public function videojuego(){
-		$this->belongsToMany("App\Models\Videojuego");
+		return $this->belongsToMany("App\Models\Videojuego");
 	}
 }

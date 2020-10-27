@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -12,17 +12,9 @@ class Favorito extends Model{
 		//Especificación del noimbre de la tabla
 	protected $table = "favorito";
 	//Desactivacion de timestamps
-	public $timestamps = false;
+	public $timestamps = true;
 
 	/***************************************
 		REELACIONES DEL MODELO
     ****************************************/
-
-	public function titulo(){
-		$this->belongsToMany("App\Models\Titulo")
-	}
-
-	public function user(){
-		$this->belongsToMany("App\Models\User")
-	}
 }
