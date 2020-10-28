@@ -10,7 +10,7 @@ class Rol extends Model
 		CONFIGURACIÓN DEL MODELO
     ****************************************/
 		//Especificación del noimbre de la tabla
-	protected $table = "titulo";
+	protected $table = "rol";
 	//Desactivacion de timestamps
 	public $timestamps = false;
 
