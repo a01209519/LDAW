@@ -1,0 +1,117 @@
+/*---- BY ID ----*/
+#navbar-title {
+    font-size: 2.2rem;
+}
+
+/*---- BY CLASS ----*/
+.main-header {
+    background-color: #F2F3F4;
+}
+
+.main-navbar {
+    background-color: black;
+    height:3em;
+}
+
+.nav-element {
+    font-size: 1.2rem;
+    margin-right: 3vw;
+    margin-top: 1.3vh;
+    margin-bottom: 1.3vh;
+}
+
+.nav-user {
+    color:black;
+    font-size: 3em;
+    margin-top: 1.3vh;
+    margin-bottom: 1.3vh;
+}
+
+.create-user-icon {
+    font-size: 3em;
+    margin-top: 1.3vh;
+    margin-bottom: 1.3vh;
+}
+
+.nav-link{
+    color: white;
+}
+
+.nav-account-link{
+    color: black;
+}
+
+.nav-account-link:hover{
+    color: #DCBC1A;
+}
+
+
+.nav-link:hover{
+    color: #DCBC1A;
+}
+
+.navbar-toggler{
+    color: white;
+}
+
+.principal {
+    background-color: #DCBC1A;
+    color: #ffffff;
+}
+
+.titulos {
+    font-family: "Varela Round", sans-serif;
+    color: black;
+}
+
+.subtitulos {
+    font-family: "Didact Gothic", sans-serif;
+}
+
+.texto {
+    font-family: "Roboto", sans-serif;
+}
+
+.navbar{
+    color: black;
+}
+
+.navbar-brand{
+    color:black;
+
+}
+.navbar-brand:hover{
+    color:black;
+
+}
+
+.searchBar {
+    width: 100%;
+}
+
+
+.copy-footer {
+    background-color: black !important;
+}
+
+
+
+
+
+
+
+
+
+
+/*------ MOBILE --------*/
+@media only screen and (max-width: 600px) {
+    #floating-button {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 3%;
+    }
+
+    #vertical_nav {
+        display: none;
+    }
+}
