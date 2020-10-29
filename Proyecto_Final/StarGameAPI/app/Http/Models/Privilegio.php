@@ -10,7 +10,7 @@ class Privilegio extends Model{
 		CONFIGURACIÓN DEL MODELO
     ****************************************/
 		//Especificación del noimbre de la tabla
-	protected $table = "privilegio";
+	protected $table = "privilegios";
 	//Desactivacion de timestamps
 	public $timestamps = false;
 
@@ -19,6 +19,6 @@ class Privilegio extends Model{
     ****************************************/
 
 	public function Rol(){
-		return $this->belongsToMany(Rol::class, 'rolprivilegio', 'id_privilegio', 'id_rol');
+		return $this->belongsToMany(Rol::class, 'rolprivilegio', 'id_privilegios', 'id_rol');
 	}
 }

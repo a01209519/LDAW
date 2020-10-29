@@ -3,8 +3,10 @@
 namespace App\Http\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Http\Models\Rol;
 
 class User extends Authenticatable
 {
@@ -47,4 +49,27 @@ class User extends Authenticatable
         return $this->belongsToMany(Rol::class, 'userrol', 'id_user', 'id_rol');
     }
 
+    public static function user_privilegios($id){
+        $idrol = self::select("rol.id as rol_id")
+                            ->Where('users.id',$id)
+                            ->join("userrol","users.id","userrol.id_user")
+                            ->join("rol","rol.id","userrol.id_rol")
+                            ->get();
+        $idrol = $idrol[0]["rol_id"];
+        $privilegios_user = Rol::select("privilegios.id as privilegios_id","privilegios.nombre as Privilegio_nombre")
+                            ->Where('rol.id',$idrol)
+                            ->join("rolprivilegio","rol.id","rolprivilegio.id_rol")
+                            ->join("privilegios","privilegios.id","rolprivilegio.id_privilegios")
+                            ->get();
+        $usuariol = [];
+        foreach($privilegios_user as $item){
+            $id = $item->privilegios_id;
+            $usuariol[$id] = [
+                "Nombre" => $item->Privilegio_nombre
+            ];
+        }return $usuariol;
+    }
+
 }
+
+
