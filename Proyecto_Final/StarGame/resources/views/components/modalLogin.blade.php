@@ -12,13 +12,28 @@
         <br />
         <div class="container">
 
-
-          <div class="row justify-content-center">
-            <p class="subtitulos"><strong>Usuario: </strong><br> </p>
+          <center>
+          <form action="/action_page.php">
+            <div class="row">
+              <div class="col-4">
+                <label for="fname">Usuario:</label><br>
+              </div>
+              <div class="col-8">
+                <input type="text" id="fname" name="fname" value="John"><br>
+              </div>
+              <div class="col-4">
+                <label for="fname">Contraseña:</label><br>
+              </div>
+              <div class="col-8">
+                <input type="text" id="fname" name="fname" value="John"><br>
+              </div>
+            
           </div>
-          <div class="row justify-content-center">
-            <p class="subtitulos"><strong>Contraseña: </strong><br> </p>
-          </div>         
+          </form>  
+        </center>
+        <br>
+      
+
           <div class="row justify-content-center">
             <button type="button" class="btn btn-success" data-dismiss="modal">Iniciar Sesión</button>
           </div>
