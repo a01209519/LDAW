@@ -56,8 +56,7 @@
             {{-- Inyecta contenido principal --}}
             @yield("main_content")
 
-            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-            <br><br><br><br>
+            <br><br><br>
 
         <x-footer />
 

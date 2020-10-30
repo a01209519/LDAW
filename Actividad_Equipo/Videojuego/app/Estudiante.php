@@ -21,8 +21,12 @@ class Estudiante extends Model
     }
     public static function sendStudent(Request $request){
     	$nombre = $request->file('foto')->getClientOriginalName();
+         $nombre = html_entity_decode($nombre);
     	$request->file('foto')->storeAs('public',$nombre);
     	$data = $request->all();
+        $data['nombre'] = html_entity_decode($data['nombre']);
+         $data['apellido'] = html_entity_decode($data['apellido']);
+         $data['experiencia'] = html_entity_decode($data['experiencia']);
     	unset($data['_token']);
     	unset($data['foto']);
     	$data['ruta'] = '/fotos/public/'.$nombre;

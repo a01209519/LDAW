@@ -11,21 +11,35 @@
     <ul class="navbar-nav ml-auto">
       
       <!-- SESIÓN -->
-      <li class="nav-item">
+      <li class="nav-item-account">
 
-        <button
-              data-toggle="modal" 
-              data-target="#ModalLogin"
-              type="button" 
-              class="btn subtitulos btn-md btn-default">
-                <i class="fa fa-user-circle nav-user"></i>
-        </button>
+        <div class="dropdown">
+            <button class="btn subtitulos btn-md btn-default" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle nav-user"></i></button>
 
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                <h6 class="dropdown-header">A01209043@itesm.mx</h6>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Mi Cuenta</a>
+                <a class="dropdown-item" href="#">Mis Juegos</a>
+                <div class="dropdown-divider"></div>
 
+                <?php $account = 0 ?>
+                <?php if ($account == 0){ ?>
+                <div class="row justify-content-center">
+                  <button type="button" class="btn btn-success" data-dismiss="modal">Iniciar Sesión</button>
+                </div>
+                <?php } ?>
+
+                 <?php if ($account == 1){ ?>
+                <div class="row justify-content-center">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar Sesión</button>
+                </div>
+                <?php } ?>
+
+            </div>
+        </div>
       </li>
     </ul>
   </div>
 </nav>
 
-
-  <x-modalLogin/>

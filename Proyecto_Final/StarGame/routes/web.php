@@ -16,3 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::view('/','home');
 
 Route::view('/home','welcome');
+
+Route::resource('/titulo','TituloController');
