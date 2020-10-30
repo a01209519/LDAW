@@ -18,3 +18,5 @@ Route::view('/','home');
 Route::view('/home','welcome');
 
 Route::resource('/titulo','TituloController');
+
+Route::get('/aute','Aute@iniciar_sesion')->name('iniciar_sesion');

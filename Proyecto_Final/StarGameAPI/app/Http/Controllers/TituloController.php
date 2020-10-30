@@ -15,6 +15,7 @@ class TituloController extends Controller
     public function index()
     {
         //
+        $titulos = Titulo::all()->sortBy('nombre');
     }
 
     /**

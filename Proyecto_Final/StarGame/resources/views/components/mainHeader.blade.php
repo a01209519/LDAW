@@ -24,11 +24,17 @@
                 <div class="dropdown-divider"></div>
 
                 <?php $account = 0 ?>
-                <?php if ($account == 0){ ?>
                 <div class="row justify-content-center">
-                  <button type="button" class="btn btn-success" data-dismiss="modal">Iniciar Sesión</button>
+                  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalLogin">Iniciar Sesión</button>
                 </div>
-                <?php } ?>
+
+
+                <div class="row justify-content-center">
+                  <p align="center"> o </p>
+                </div>
+                <div class="row justify-content-center">
+                  <a class="btn btn-primary btn-sm" href="www..com">Registrate</a>
+                </div>
 
                  <?php if ($account == 1){ ?>
                 <div class="row justify-content-center">
@@ -41,5 +47,6 @@
       </li>
     </ul>
   </div>
+  <x-modalLogin/>
 </nav>
 
