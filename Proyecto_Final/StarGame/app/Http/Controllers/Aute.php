@@ -14,9 +14,13 @@ class Aute extends Controller
     	$data['correo'] = e($data['correo']);
     	$data['pswd'] = e($data['pswd']);*/
     	Autent::acreditar($request);
+    	return back();
+    	
     }
 
     public function cerrar_sesion(){
+    	session()->flush();
+    	return back();
 
     }
 }

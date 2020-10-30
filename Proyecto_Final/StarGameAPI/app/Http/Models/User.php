@@ -77,6 +77,7 @@ class User extends Authenticatable
         foreach ($user as $item){
             $id = $item->id;
             $response[$id] =[
+                "Id"=>$item->id,
                 "Correo"=>$item->Correo,
                 "Password"=>$item->Password
             ];

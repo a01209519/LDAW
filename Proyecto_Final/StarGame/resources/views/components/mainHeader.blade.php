@@ -17,13 +17,20 @@
             <button class="btn subtitulos btn-md btn-default" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-user-circle nav-user"></i></button>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                <h6 class="dropdown-header">A01209043@itesm.mx</h6>
+              @if(session('id'))
+                <h6 class="dropdown-header">{{session('correo')}}</h6>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Mi Cuenta</a>
                 <a class="dropdown-item" href="#">Mis Juegos</a>
                 <div class="dropdown-divider"></div>
 
-                <?php $account = 0 ?>
+                <div class="row justify-content-center">
+                  <a class="btn btn-danger btn-sm" href="{{route('cerrar_sesion')}}">Cerrar Sesión</a>
+                  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalLogin">Iniciar Sesión</button>
+                </div>
+                @endif
+
+               @if(!session('id'))
                 <div class="row justify-content-center">
                   <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalLogin">Iniciar Sesión</button>
                 </div>
@@ -35,7 +42,9 @@
                 <div class="row justify-content-center">
                   <a class="btn btn-primary btn-sm" href="www..com">Registrate</a>
                 </div>
+                @endif
 
+                 <?php $account = 0 ?>
                  <?php if ($account == 1){ ?>
                 <div class="row justify-content-center">
                   <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar Sesión</button>

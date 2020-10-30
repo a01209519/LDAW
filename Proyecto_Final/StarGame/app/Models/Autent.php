@@ -19,8 +19,9 @@ class Autent extends Model
     	foreach($users as $id =>$user){
     		if($user['Correo'] == $data['correo'] && $user['Password'] == $data['pswd']){
     			$boleano = 'true';
+    			$request->session()->put('id', $user['Id']);
+    			$request->session()->put('correo', $user['Correo']);
     		}
     	}
-    	echo $boleano;
     }
 }
