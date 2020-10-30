@@ -13,30 +13,32 @@
         <div class="container">
 
           <center>
-          <form action="/action_page.php">
+          <form method="POST" action="{{route('iniciar_sesion')}}" enctype="multipart/form-data">
+            @csrf
             <div class="row">
               <div class="col-4">
                 <label for="fname">Usuario:</label><br>
               </div>
               <div class="col-8">
-                <input type="text" id="fname" name="fname" value="John"><br>
+                <input type="email" id="fname" name="correo"><br>
               </div>
               <div class="col-4">
                 <label for="fname">Contraseña:</label><br>
               </div>
               <div class="col-8">
-                <input type="text" id="fname" name="fname" value="John"><br>
+                <input type="password" id="fname" name="pswd"><br>
               </div>
             
+          </div>
+          <div class="row justify-content-center">
+            <button type="submit" class="btn btn-success">Iniciar Sesión</button>
           </div>
           </form>  
         </center>
         <br>
       
 
-          <div class="row justify-content-center">
-            <button type="button" class="btn btn-success" data-dismiss="modal">Iniciar Sesión</button>
-          </div>
+          
           
 
         </div>

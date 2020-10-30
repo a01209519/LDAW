@@ -24,6 +24,6 @@ Route::get('/', function () {
 	$user = User::findOrFail(1);
     return $user->titulo;
 });
-
+Route::get('/user/aute','UserController@iniciar_sesion')->name('iniciar_sesion');
 
 Route::resource('titulos', 'TituloController');

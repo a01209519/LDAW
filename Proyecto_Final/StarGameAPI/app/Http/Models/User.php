@@ -70,6 +70,20 @@ class User extends Authenticatable
         }return $usuariol;
     }
 
+    public static function datos_usuario(){
+        $user = self::select('users.id as id','users.correo as Correo','users.password as Password')
+                        ->get();
+        $response = [];
+        foreach ($user as $item){
+            $id = $item->id;
+            $response[$id] =[
+                "Correo"=>$item->Correo,
+                "Password"=>$item->Password
+            ];
+        }
+        return $response;
+    }
+
 }
 
 
