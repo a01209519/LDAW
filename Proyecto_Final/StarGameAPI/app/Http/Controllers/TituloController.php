@@ -32,7 +32,7 @@ class TituloController extends Controller
     
     public function show(Titulo $titulo)
     {
-        //
+        return Titulo::find($titulo);
     }
 
     /**

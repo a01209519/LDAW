@@ -51,7 +51,11 @@ class TituloController extends Controller
      */
     public function show($id)
     {
-        echo $id;
+        $titulo = Titulo::getTitle($id);
+
+        return view('titulo',[
+            'titulo'=>$titulo
+        ]);
     }
 
     /**
