@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Titulo;
+use App\Http\Models\Titulo;
 use Illuminate\Http\Request;
 
 class TituloController extends Controller
@@ -14,8 +14,8 @@ class TituloController extends Controller
      */
     public function index()
     {
-        //
         $titulos = Titulo::all()->sortBy('nombre');
+        return $titulos;
     }
 
     /**
@@ -29,12 +29,7 @@ class TituloController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Titulo  $titulo
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show(Titulo $titulo)
     {
         //

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Titulo;
+use App\Models\Titulo;
 use Illuminate\Http\Request;
 
 class TituloController extends Controller
@@ -14,7 +14,12 @@ class TituloController extends Controller
      */
     public function index()
     {
-        //
+        //Obtendo datos de mi API a traves del modelo Appointments con el metodo getAppointments.
+        $titulo = Titulo::getTitles();
+
+        return view('home', [
+            'titulo'=>$titulo
+        ]);
     }
 
     /**

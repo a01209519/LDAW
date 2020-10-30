@@ -16,13 +16,13 @@
 
 <div class="container">
   <div class="row">
+  <section class="row catalog card-group">
+ @foreach($titulo as $id => $titulo)
 
- {{--  @foreach($arboles as $id => $arboles) --}}
+     <x-gameCard :id="$id" :titulo="$titulo" />
 
-      <x-gameCard/>
-     {{-- <!--<x-gameCard :id="$id" :arboles="$arboles" />-->--}}
-
- {{--  @endforeach  --}}  
+ @endforeach 
+</section>
 </div>
 </div>
 
