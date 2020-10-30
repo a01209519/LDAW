@@ -10,6 +10,9 @@
         <hr />
         <h3 class="subtitulos text-center">INICIAR SESIÓN</strong></h3>
         <br />
+        @if(session('alert'))
+        {{session('alert')}}
+        @endif
         <div class="container">
 
           <center>

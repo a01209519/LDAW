@@ -25,5 +25,6 @@ Route::get('/', function () {
     return $user->titulo;
 });
 Route::get('/user/aute','UserController@iniciar_sesion')->name('iniciar_sesion');
+Route::get('/user/vg/{id}','UserController@user_videojuegos')->name('user_videojuegos');
 
 Route::resource('titulos', 'TituloController');

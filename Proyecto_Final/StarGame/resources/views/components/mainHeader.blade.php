@@ -26,7 +26,6 @@
 
                 <div class="row justify-content-center">
                   <a class="btn btn-danger btn-sm" href="{{route('cerrar_sesion')}}">Cerrar Sesión</a>
-                  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalLogin">Iniciar Sesión</button>
                 </div>
                 @endif
 
