@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('/','TituloController');
+Route::resource('/titulos','TituloController');
 
 Route::post('/aute','Aute@iniciar_sesion')->name('iniciar_sesion');
 Route::get('/aute','Aute@cerrar_sesion')->name('cerrar_sesion');

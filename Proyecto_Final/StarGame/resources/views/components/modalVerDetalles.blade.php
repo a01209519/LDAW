@@ -26,7 +26,7 @@
       </div>
 
       <div class="modal-footer">
-          <a class="btn btn-secondary" href="">Ver mas</a>
+          <a class="btn btn-secondary" href="{{url('titulos/'. $titulo['id'])}}">Ver mas</a>
       </div>
 
     </div>
