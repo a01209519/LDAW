@@ -66,4 +66,8 @@ class UserController extends Controller
         $users_data = User::datos_usuario();
         return $users_data;
     }
+    public function user_videojuegos($id){
+        $users_games = User::juegos_usuario($id);
+        return $user_games;
+    }
 }

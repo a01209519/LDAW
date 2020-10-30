@@ -18,6 +18,7 @@
         <a class="nav-link subtitulos" href="{{ url('/comunidad') }}">Comunidad</a>
       </li>
 
+      
       <li class="nav-item nav-element">
       </li>
       <li class="nav-item nav-element">

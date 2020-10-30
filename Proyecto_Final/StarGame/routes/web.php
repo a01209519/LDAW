@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('/','TituloController');
+Route::get('/','TituloController@index');
 Route::resource('/titulos','TituloController');
 
 Route::post('/aute','Aute@iniciar_sesion')->name('iniciar_sesion');

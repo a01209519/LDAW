@@ -13,8 +13,13 @@ class Aute extends Controller
     	unset($data['_token']);
     	$data['correo'] = e($data['correo']);
     	$data['pswd'] = e($data['pswd']);*/
-    	Autent::acreditar($request);
-    	return back();
+    	$bool = Autent::acreditar($request);
+    	if($bool == 'true'){
+    		return back();
+    	}else{
+    		return back()->with('alert','Usuario y/o contraseña invalido(s)');
+    	}
+    	
     	
     }
 

@@ -85,6 +85,29 @@ class User extends Authenticatable
         return $response;
     }
 
+    public static function juegos_usuario($id){
+        /*Select titulo.nombre, condicion.nombre, plataforma.nombre From users,videojuego, condicion, plataforma, titulo Where titulo.id = videojuego.id_titulo AND users.id = videojuego.id_usuario AND plataforma.id = videojuego.id_plataforma AND condicion.id = videojuego.id_condicion AND users.id = 1*/
+
+        $juegos = self::select('videojuego.id as id','titulo.nombre as Titulo','condicion.nombre as Condicion','plataforma.nombre as Plataforma')
+                        ->Where('users.id',$id)
+                        ->join('videojuego','users.id','videojuego.id_usuario')
+                        ->join('titulo','titulo.id','videojuego.id_titulo')
+                        ->join('plataforma','plataforma.id','videojuego.id_plataforma')
+                        ->join('condicion','condicion.id','videojuego.id_condicion')
+                        ->get();
+        $response = [];
+        foreach($juegos as $item){
+            $id = $item->id;
+            $response[$id] = [
+                "Id"=>$item->id,
+                "Titulo"=>$item->Titulo,
+                "Condicion"=>$item->Condicion,
+                "Plataforma"=>$item->Plataforma
+            ];
+        }
+        return $response;
+    }
+
 }
 
 
