@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Models\User;
+use App\Http\Models\Resena;
+use Illuminate\Support\Facades\DB;
 
 class ResenaController extends Controller
 {
@@ -26,6 +28,15 @@ class ResenaController extends Controller
     public function store(Request $request)
     {
         //
+        $coment = new Resena();
+        $coment->id_usuario = $request->input('id_usuario');
+        $coment->id_titulo = $request->input('id_titulo');
+        $coment->id_tipo = 1;
+        $coment->comentarios = $request->input('resena');
+        $coment->save();
+        if($coment->save()){
+            return ["success"=>true];
+        }
     }
 
     /**

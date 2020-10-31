@@ -1,10 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Pivot;
-
+use Illuminate\Database\Eloquent\Relations\Pivot;
 class Resena extends Pivot
 { 
 
@@ -15,6 +14,8 @@ class Resena extends Pivot
 	protected $table = "resena";
 	//Desactivacion de timestamps
 	public $timestamps = true;
+
+
 
 
 }

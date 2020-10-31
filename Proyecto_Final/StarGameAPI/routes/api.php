@@ -30,4 +30,6 @@ Route::get('/user/vg/{id}','UserController@user_videojuegos')->name('user_videoj
 
 Route::resource('titulos', 'TituloController');
 
-Route::get('/resena/{id}','ResenaController@show')->name('resena_show');
+//Route::get('/resena/{id}','ResenaController@show')->name('resena_show');
+
+Route::apiResource('resena','ResenaController');

@@ -31,7 +31,6 @@
               <p> <?php $titulo['descripcion'] ?></p>
 
               <ul>
-                  <li><Strong>Plataforma</Strong> Xbox One</li>
                   <li><Strong>Version</Strong> {{$titulo['version']}}</li>
               </ul>
           </div>
@@ -52,18 +51,24 @@
           </div>
          </div>
           
+          @if(session('id'))
          <div class="row">
             <div class="col-md-12">
+              <form method="POST" action="{{route('registrar_resena')}}"enctype="multipart/form-data">
+                @csrf
                 <div class="container-fluid">
                   <h6 class="display-12">Comenta que te pareció el juego</h6>
                   <div class="input-group">
-                    <textarea class="form-control" aria-label="With textarea" style="width:39.5em;"></textarea>
+                    
+                    <textarea class="form-control" aria-label="With textarea" style="width:39.5em;" name="resena"></textarea>
                   </div>
-                  <button type="button" class="btn btn-success" style="margin-left:35em; margin-top:.5em;">Enviar</button>
+                  <input class="form-control" type="hidden" name="id_titulo"value="{{$titulo['id']}}">
+                  <button type="submit" class="btn btn-success" style="margin-left:35em; margin-top:.5em;">Enviar</button>
                 </div>
-
+              </form>
           </div>
          </div>
+         @endif
 
     </div>
     </div>
