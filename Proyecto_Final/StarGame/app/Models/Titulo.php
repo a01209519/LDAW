@@ -28,4 +28,14 @@ class Titulo extends Model
         return $response->json();
 
     }
+
+    //Show de reseñas
+    public static function getResena($id){
+
+        //cargar datos del API
+        $response = Http::get('http://127.0.0.1:8001/api/resena/'. $id);
+        //Devolver la respuesta en un arreglo
+        return $response->json();
+
+    }
 }

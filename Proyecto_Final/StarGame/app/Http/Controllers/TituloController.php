@@ -34,8 +34,12 @@ class TituloController extends Controller
     public function show($id)
     {
         $titulo = Titulo::getTitle($id);
+        $resena = Titulo::getResena($id);
 
-        return view("titulo", ["titulo" => $titulo]);
+        return view("titulo", [
+            "titulo" => $titulo,
+            "resena" => $resena
+        ]);
 
     }
     public function edit(Titulo $titulo)

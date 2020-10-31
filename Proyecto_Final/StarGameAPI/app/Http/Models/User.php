@@ -45,6 +45,7 @@ class User extends Authenticatable
         return $this->belongsToMany(Titulo::class, 'favorito', 'id_usuario', 'id_titulo');
     }
 
+
     public function rol(){
         return $this->belongsToMany(Rol::class, 'userrol', 'id_user', 'id_rol');
     }
@@ -109,6 +110,30 @@ class User extends Authenticatable
         return $response;
     }
 
+
+     public static function usuario_resena($id){
+        /*Select titulo.nombre, condicion.nombre, plataforma.nombre From users,videojuego, condicion, plataforma, titulo Where titulo.id = videojuego.id_titulo AND users.id = videojuego.id_usuario AND plataforma.id = videojuego.id_plataforma AND condicion.id = videojuego.id_condicion AND users.id = 1*/
+
+        $resena = self::select('titulo.id as titulo_id','titulo.nombre as Titulo', 'users.nombre as user_nombre', 'resena.id as resena_id', 'resena.comentarios as comentario','resena.likes as like','resena.created_at as fecha')
+                        ->Where('titulo.id',$id)
+                        ->join('resena','users.id','resena.id_usuario')
+                        ->join('titulo','titulo.id','resena.id_titulo')
+                        ->get();
+        $response = [];
+        foreach($resena as $item){
+            $id = $item->resena_id;
+            $response[$id] = [
+                "id"=>$item->resena_id,
+                "id_titulo"=>$item->titulo_id,
+                "titulo_nombre"=>$item->Titulo,
+                "comentario"=>$item->comentario,
+                "likes"=>$item->like,
+                "fecha"=>$item->fecha,
+                "user"=>$item->user_nombre
+            ];
+        }
+        return $response;
+    }
 }
 
 

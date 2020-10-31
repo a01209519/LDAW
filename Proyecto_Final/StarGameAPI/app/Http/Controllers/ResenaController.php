@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Resena;
 use Illuminate\Http\Request;
+use App\Http\Models\User;
 
 class ResenaController extends Controller
 {
@@ -34,9 +34,11 @@ class ResenaController extends Controller
      * @param  \App\Resena  $resena
      * @return \Illuminate\Http\Response
      */
-    public function show(Resena $resena)
+    public function show($resena)
     {
-        //
+        $resenas = User::usuario_resena($resena);
+
+        return $resenas;
     }
 
     /**

@@ -40,15 +40,17 @@
           <div class="row">
             <h5 class="subtitulos" style="margin-left:1em; margin-top: 1em;">Reviews:</h5><br>
             <div class="col-md-12">
+              @foreach ($resena as $id => $resena)
               <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                  <h6 class="display-12">Nombre Usuario</h6>
-                  <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent. Comenario</p>
+                  <h6 class="display-12">{{$resena['user']}}</h6>
+                  <p class="lead">{{$resena['comentario']}}</p>
                 </div>
               </div>
+              @endforeach
           </div>
          </div>
-
+          
          <div class="row">
             <div class="col-md-12">
                 <div class="container-fluid">

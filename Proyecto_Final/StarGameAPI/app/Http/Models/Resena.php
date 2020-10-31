@@ -3,8 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Pivot;
 
-class Resena extends Model
+class Resena extends Pivot
 { 
 
     /***************************************
@@ -14,17 +15,6 @@ class Resena extends Model
 	protected $table = "resena";
 	//Desactivacion de timestamps
 	public $timestamps = true;
-
-	/***************************************
-		REELACIONES DEL MODELO
-    ****************************************/
-	public function user(){
-		return $this->belongsToMany(User::class, 'favorito', 'id_titulo', 'id_usuario');
-	}
-
-    public function titulo(){
-        return $this->belongsTo(Rol::class, 'userrol', 'id_user', 'id_rol');
-    }
 
 
 }

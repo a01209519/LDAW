@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Models\User;
+use App\Http\Controllers\ResenaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,3 +29,5 @@ Route::get('/user/aute','UserController@iniciar_sesion')->name('iniciar_sesion')
 Route::get('/user/vg/{id}','UserController@user_videojuegos')->name('user_videojuegos');
 
 Route::resource('titulos', 'TituloController');
+
+Route::get('/resena/{id}','ResenaController@show')->name('resena_show');
