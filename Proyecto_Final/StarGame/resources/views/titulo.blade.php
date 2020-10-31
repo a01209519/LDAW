@@ -38,7 +38,7 @@
 
           
           <div class="row">
-            <h5 class="subtitulos" style="margin-left:1em; margin-top: 1em;">Reviews:</h5><br>
+            <h5 class="subtitulos" style="margin-left:1em; margin-top: 1em;"><Strong>Conoce la opinion de la comunidad:</Strong></h5><br>
             <div class="col-md-12">
               @foreach ($resena as $id => $resena)
               <div class="jumbotron jumbotron-fluid">
@@ -47,6 +47,7 @@
                   <p class="lead">{{$resena['comentario']}}</p>
                 </div>
               </div>
+              <hr>
               @endforeach
           </div>
          </div>
