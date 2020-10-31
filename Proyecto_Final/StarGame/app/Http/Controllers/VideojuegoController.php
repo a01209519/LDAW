@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\Videojuego;
+use App\Models\Videojuego;
 
 class VideojuegoController extends Controller
 {
@@ -85,6 +85,6 @@ class VideojuegoController extends Controller
 
     public function mis_juegos(){
         $juegos = Videojuego::get_user_games(session('id'));
-        echo "Si";
+        return view('misjuegos',['juegos'=>$juegos]);
     }
 }

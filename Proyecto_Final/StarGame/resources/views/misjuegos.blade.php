@@ -12,14 +12,14 @@
 
 {{-- Contenido principal --}}
 @section("main_content")
-<h2 class="titulos text-center text-uppercase">Videojuegos</h2>
+<h2 class="titulos text-center text-uppercase">Mis Videojuegos</h2>
 
 <div class="container">
   <div class="row">
   <section class="row catalog card-group">
- @foreach($titulo as $id => $juego)
+ @foreach($juegos as $id => $juegos)
 
-     <x-gameCard :id="$id" :titulo="$titulo" />
+     <x-mijuegoCard :id="$id" :titulo="$juegos" />
 
  @endforeach 
 </section>

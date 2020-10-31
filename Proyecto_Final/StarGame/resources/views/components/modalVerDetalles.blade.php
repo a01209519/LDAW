@@ -4,7 +4,7 @@
     <div class="modal-content">
       <div class="modal-body">
         <center>
-          <img class="card-img-top" src="{{ url('img/titulos/'. $titulo['id'] .'.jpg') }}" alt="Card image cap" style="width:12rem;">      
+          <img class="card-img-top" src="{{ url('img/titulos/'. $titulo['id'] .'.jpg') }}" alt="Card image cap" style="width:12rem;">
         <hr />
         <h3 class="subtitulos">CARACTERÍSTICAS</strong></h3></center>
         <br />
