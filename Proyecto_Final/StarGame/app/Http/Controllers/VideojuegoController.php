@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Models\User;
+use App\Http\Models\Videojuego;
 
-class UserController extends Controller
+class VideojuegoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,6 +13,16 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
         //
     }
@@ -40,6 +50,17 @@ class UserController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -62,12 +83,8 @@ class UserController extends Controller
         //
     }
 
-    public function iniciar_sesion(){
-        $users_data = User::datos_usuario();
-        return $users_data;
-    }
-    public function user_videojuegos($id){
-        $users_games = User::juegos_usuario($id);
-        return $users_games;
+    public function mis_juegos(){
+        $juegos = Videojuego::get_user_games(session('id'));
+        echo "Si";
     }
 }

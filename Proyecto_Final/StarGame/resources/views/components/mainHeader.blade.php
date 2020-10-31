@@ -21,7 +21,7 @@
                 <h6 class="dropdown-header">{{session('correo')}}</h6>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Mi Cuenta</a>
-                <a class="dropdown-item" href="#">Mis Juegos</a>
+                <a class="dropdown-item" href="{{route('mis_juegos')}}">Mis Juegos</a>
                 <div class="dropdown-divider"></div>
 
                 <div class="row justify-content-center">
