@@ -7,11 +7,7 @@ use Illuminate\Http\Request;
 
 class TituloController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index()
     {
         //Obtendo datos de mi API a traves del modelo Appointments con el metodo getAppointments.
@@ -22,48 +18,26 @@ class TituloController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Titulo  $titulo
-     * @return \Illuminate\Http\Response
-     */
+    
     public function show($id)
     {
         $titulo = Titulo::getTitle($id);
 
-        return view('titulo',[
-            'titulo'=>$titulo
-        ]);
-    }
+        return view("titulo", ["titulo" => $titulo]);
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Titulo  $titulo
-     * @return \Illuminate\Http\Response
-     */
+    }
     public function edit(Titulo $titulo)
     {
         //
