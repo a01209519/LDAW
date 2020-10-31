@@ -25,7 +25,7 @@ class Aute extends Controller
 
     public function cerrar_sesion(){
     	session()->flush();
-    	return back();
+    	return redirect('/');
 
     }
 }

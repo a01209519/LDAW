@@ -10,7 +10,7 @@ class Titulo extends Model{
     /***************************************
 		CONFIGURACIÓN DEL MODELO
     ****************************************/
-		//Especificación del noimbre de la tabla
+    //Especificación del noimbre de la tabla
 	protected $table = "titulo";
 	//Desactivacion de timestamps
 	public $timestamps = false;
@@ -18,7 +18,10 @@ class Titulo extends Model{
 	/***************************************
 		REELACIONES DEL MODELO
     ****************************************/
+
 	public function user(){
 		return $this->belongsToMany(User::class, 'favorito', 'id_titulo', 'id_usuario');
 	}
+
+
 }
