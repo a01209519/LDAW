@@ -72,13 +72,14 @@ class User extends Authenticatable
     }
 
     public static function datos_usuario(){
-        $user = self::select('users.id as id','users.correo as Correo','users.password as Password')
+        $user = self::select('users.id as id','users.correo as Correo','users.password as Password','users.nombre as nombre')
                         ->get();
         $response = [];
         foreach ($user as $item){
             $id = $item->id;
             $response[$id] =[
                 "Id"=>$item->id,
+                "Nombre"=>$item->nombre,
                 "Correo"=>$item->Correo,
                 "Password"=>$item->Password
             ];

@@ -21,6 +21,8 @@ class Autent extends Model
     			$boleano = 'true';
     			$request->session()->put('id', $user['Id']);
     			$request->session()->put('correo', $user['Correo']);
+                $request->session()->put('nombre', $user['Nombre']);
+                $request->session()->put('alerta',"si");
     		}
     	}return $boleano;
     }

@@ -12,7 +12,29 @@
 
 {{-- Contenido principal --}}
 @section("main_content")
+
 <h2 class="titulos text-center text-uppercase">Videojuegos</h2>
+@if(session('alerta'))
+<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="height: 200px;">
+<div class="toast">
+  <div class="toast-header">
+    Bienvenida
+  </div>
+  <div class="toast-body">
+    Bienvenido de vuelta {{session('nombre')}}
+  </div>
+</div>
+</div>
+<script>
+$(document).ready(function(){
+  $('.toast').toast({
+    delay:5000
+  });
+  $('.toast').toast('show');
+});
+</script>
+<?php session()->forget('alerta');?>
+@endif
 
 <div class="container">
   <div class="row">

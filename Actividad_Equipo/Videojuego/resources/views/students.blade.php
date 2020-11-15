@@ -1,6 +1,7 @@
 @extends("layout")
 @section("page_title","Students")
 @section("Titulo")
+
 <div class="container" align="center">
 <h1>Students</h1>
 </div>

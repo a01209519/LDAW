@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Estudiante;
+use Illuminate\Support\Facades\Cache;
+use Storage;
 
 class StudentsApi extends Controller
 {
@@ -42,14 +44,18 @@ class StudentsApi extends Controller
     public function store(Request $request)
     {
         //
-        $estudiante = new Estudiante();
+        $imagen = $request->input('foto_string');
+        $imagen = base64_decode($imagen);
+        Storage::put('ejemplo2.jpg',$imagen);
+        /*$estudiante = new Estudiante();
         $estudiante->nombre = $request->input('nombre');
         $estudiante->apellidos = $request->input('apellido');
         $estudiante->experiencia = $request->input('experiencia');
         $estudiante->ruta = $request->input('ruta');
         if($estudiante->save()){
             return ["succes"=> true];
-        }
+        }*/
+
 
     }
 
