@@ -20,7 +20,6 @@ class Aute extends Controller
     		return back()->with('alert','Usuario y/o contraseña invalido(s)');
     	}
     	
-    	
     }
 
     public function cerrar_sesion(){
