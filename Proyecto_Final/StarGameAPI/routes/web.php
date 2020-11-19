@@ -21,11 +21,11 @@ use App\Http\Models\User;
     return $videojuego;
 });*/
 
-Route::get('/', function () {
+/*Route::get('/', function () {
 
 	$user = User::findOrFail(1);
     return $user->titulo;
-});
+});*/
 
 /*Route::get('/', function () {
 
