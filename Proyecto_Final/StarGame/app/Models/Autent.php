@@ -15,7 +15,7 @@ class Autent extends Model
     	unset($data['_token']);
     	$data['correo'] = e($data['correo']);
     	$data['pswd'] = e($data['pswd']);
-    	$users=Http::get('http://127.0.0.1:8001/api/user/aute');
+    	//$users=Http::get('http://127.0.0.1:8001/api/user/aute');
         $response=Http::post('http://127.0.0.1:8001/api/auth/login',$data);
         if(!$response->failed()){
             $boleano = "true";

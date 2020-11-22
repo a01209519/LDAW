@@ -20,11 +20,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', function () {
+/*Route::get('/', function () {
 
 	$user = User::findOrFail(1);
     return $user->titulo;
-});
+});*/
 Route::get('/user/aute','UserController@iniciar_sesion')->name('iniciar_sesion');
 Route::get('/user/vg/{id}','UserController@user_videojuegos')->name('user_videojuegos');
 
