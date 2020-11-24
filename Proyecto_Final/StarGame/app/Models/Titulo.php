@@ -13,13 +13,7 @@ class Titulo extends Model
 
         //cargar datos del API
         $response = Http::get("http://127.0.0.1:8001/api/titulos");
-        if($response=="false"){
-            return false;
-        }else{
-            //Devolver la respuesta en un arreglo
         return $response->json();
-
-        }
     }
 
 

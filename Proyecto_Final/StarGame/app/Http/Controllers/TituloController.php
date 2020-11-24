@@ -12,14 +12,7 @@ class TituloController extends Controller
     {
         //Obtendo datos de mi API a traves del modelo Appointments con el metodo getAppointments.
         $titulo = Titulo::getTitles();
-
-        if($titulo!=false){
-            return view('home', [
-            'titulo'=>$titulo
-        ]);
-        }else{
-            return view('home',$titulo);
-        }
+        return view('home',$titulo);
     }
 
     
