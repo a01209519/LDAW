@@ -39,16 +39,11 @@
                   <p align="center"> o </p>
                 </div>
                 <div class="row justify-content-center">
-                  <a class="btn btn-primary btn-sm" href="www..com">Registrate</a>
+                  <button type="button" class="btn btn-primary btn-sm" href="#">Registrate</button>
                 </div>
                 @endif
 
-                 <?php $account = 0 ?>
-                 <?php if ($account == 1){ ?>
-                <div class="row justify-content-center">
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar Sesión</button>
-                </div>
-                <?php } ?>
+                 
 
             </div>
         </div>

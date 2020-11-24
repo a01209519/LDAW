@@ -35,7 +35,11 @@
               </ul>
           </div>
 
-          
+          @if (empty($resena))
+          <h4>Aún no hay reseñas sobre este videojuego</h4>
+          @endif
+
+          @if(!empty($resena))
           <div class="row">
             <h5 class="subtitulos" style="margin-left:1em; margin-top: 1em;"><Strong>Conoce la opinion de la comunidad:</Strong></h5><br>
             <div class="col-md-12">
@@ -50,6 +54,7 @@
               @endforeach
           </div>
          </div>
+         @endif
           
           @if(session('id'))
          <div class="row">
@@ -60,7 +65,7 @@
                   <h6 class="display-12">Comenta que te pareció el juego</h6>
                   <div class="input-group">
                     
-                    <textarea class="form-control" aria-label="With textarea" style="width:39.5em;" name="resena"></textarea>
+                    <textarea class="form-control" aria-label="With textarea" style="width:39.5em;" name="resena" required="true"></textarea>
                   </div>
                   <input class="form-control" type="hidden" name="id_titulo"value="{{$titulo['id']}}">
                   <button type="submit" class="btn btn-success" style="margin-left:35em; margin-top:.5em;">Enviar</button>

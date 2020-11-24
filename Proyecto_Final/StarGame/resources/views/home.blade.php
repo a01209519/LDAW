@@ -36,6 +36,10 @@ $(document).ready(function(){
 <?php session()->forget('alerta');?>
 @endif
 
+@if (empty($titulo))
+<h4 align="center">No se encontraron resultados</h4>
+@endif
+@if(!empty($titulo))
 <div class="container">
   <div class="row">
   <section class="row catalog card-group">
@@ -47,5 +51,6 @@ $(document).ready(function(){
 </section>
 </div>
 </div>
+@endif
 
 @endsection
