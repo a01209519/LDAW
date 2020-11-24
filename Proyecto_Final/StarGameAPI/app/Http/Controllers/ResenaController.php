@@ -17,6 +17,8 @@ class ResenaController extends Controller
     public function index()
     {
         //
+        $resenas = Resena::all();
+        return $resenas;
     }
 
     /**

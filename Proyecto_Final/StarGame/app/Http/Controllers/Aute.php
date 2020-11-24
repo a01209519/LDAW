@@ -23,6 +23,7 @@ class Aute extends Controller
     }
 
     public function cerrar_sesion(){
+        Autent::Cerrar();
     	session()->flush();
     	return redirect('/');
 

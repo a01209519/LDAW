@@ -41,4 +41,13 @@ class Autent extends Model
             $request->session()->put('jwt',$response['access_token']);
         }
     }
+
+    public static function Cerrar(){
+        $response=Http::post('http://127.0.0.1:8001/api/auth/logout');
+        if(!$response->failed()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
