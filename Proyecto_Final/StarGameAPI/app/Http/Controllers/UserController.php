@@ -67,7 +67,12 @@ class UserController extends Controller
         return $users_data;
     }
     public function user_videojuegos($id){
-        $users_games = User::juegos_usuario($id);
-        return $users_games;
+        $user = auth()->user();
+        if($user!=null){
+            $users_games = User::juegos_usuario($id);
+            return $users_games;
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
     }
 }

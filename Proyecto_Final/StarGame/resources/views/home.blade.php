@@ -12,8 +12,22 @@
 
 {{-- Contenido principal --}}
 @section("main_content")
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-s4">
+      <h2 class="titulos text-center text-uppercase">Videojuegos</h2>
+    </div>
+    @if(session('id'))
+    <div class="col-1">
+      <br>
+      <button type="button" class="btn btn-success btn-sm" href="#"><i class="fas fa-plus"></i></button>
 
-<h2 class="titulos text-center text-uppercase">Videojuegos</h2>
+    </div>
+    @endif
+  </div>
+</div>
 @if(session('alerta'))
 <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="height: 200px;">
 <div class="toast">

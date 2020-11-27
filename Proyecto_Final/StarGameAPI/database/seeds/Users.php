@@ -16,7 +16,7 @@ class Users extends Seeder
             'telefono' => '44256325',
             'correo' => 'jorge_lopez@gmail.com',
             'correo_verificado' => NULL,
-            'password' => 'password',
+            'password' => Hash::make('password'),
             'remember_token' => Hash::make('password'),
         ]);
 
@@ -25,7 +25,7 @@ class Users extends Seeder
             'telefono' => '9932394838',
             'correo' => 'victor_avila@gmail.com',
             'correo_verificado' => NULL,
-            'password' => '123',
+            'password' => Hash::make('123'),
             'remember_token' => Hash::make('password'),
         ]);
     }

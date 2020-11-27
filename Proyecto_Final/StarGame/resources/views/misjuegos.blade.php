@@ -12,8 +12,24 @@
 
 {{-- Contenido principal --}}
 @section("main_content")
-<h2 class="titulos text-center text-uppercase">Mis Videojuegos</h2>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-s4">
+      <h2 class="titulos text-center text-uppercase">Videojuegos</h2>
+    </div>
+    @if(session('id'))
+    <div class="col-1">
+      <br>
+      <button type="button" class="btn btn-success btn-sm" href="#"><i class="fas fa-plus"></i></button>
 
+    </div>
+    @endif
+  </div>
+</div>
+
+@if(!empty($juegos))
 <div class="container">
   <div class="row">
   <section class="row catalog card-group">
@@ -25,5 +41,6 @@
 </section>
 </div>
 </div>
+@endif
 
 @endsection
