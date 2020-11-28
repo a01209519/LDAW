@@ -44,6 +44,11 @@ class Titulo extends Model
         unset($data['_token']);
         $img= file_get_contents($data['img']);
         unset($data['img']);
+        if(session('rol')==2){
+            $data['estatus'] = 1;
+        }else{
+            $data['estatus'] = 2;
+        }
         $response = Http::post('http://127.0.0.1:8001/api/titulos',$data);
         if($response->serverError()){
         return true;    

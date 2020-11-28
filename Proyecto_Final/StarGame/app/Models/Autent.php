@@ -37,6 +37,7 @@ class Autent extends Model
             $request->session()->put('id',$user['id']);
             $request->session()->put('correo',$user['correo']);
             $request->session()->put('nombre',$user['nombre']);
+            $request->session()->put('rol',$user['rol']);
             $request->session()->put('alerta',"si");
             $request->session()->put('jwt',$response['access_token']);
         }

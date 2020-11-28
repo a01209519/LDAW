@@ -5,6 +5,7 @@ namespace App\Http\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use App\Http\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class Titulo extends Model{
 
@@ -29,10 +30,14 @@ class Titulo extends Model{
 		$titulo->nombre = $request->input('nombre');
 		$titulo->version = $request->input('vers');
 		$titulo->descripcion = $request->input('des');
+		$titulo->estatus = $request->input('estatus');
+		DB::beginTransaction();
 		$titulo->save();
+		DB::commit();
 		if($titulo->save()){
 			return true;
 		}else{
+			DB::rollback();
 			return false;
 		}
 

@@ -85,6 +85,12 @@ class VideojuegoController extends Controller
 
     public function mis_juegos(){
         $juegos = Videojuego::get_user_games(session('id'));
-        return view('misjuegos',['juegos'=>$juegos]);
+        //Si la función arroja falso, quiere decir que hay que volverse
+        // a logear
+        if($juegos==false){
+            return redirect()->route('cerrar_sesion');
+        }else{
+            return view('misjuegos',['juegos'=>$juegos]);
+        }
     }
 }

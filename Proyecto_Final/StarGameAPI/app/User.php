@@ -90,6 +90,11 @@ class User extends Authenticatable implements JWTSubject
         return $response;
     }
 
+    public static function rol_usuario($id){
+        $rol = self::find($id)->rol;
+        return $rol[0]['id'];
+    }
+
     public static function juegos_usuario($id){
         /*Select titulo.nombre, condicion.nombre, plataforma.nombre From users,videojuego, condicion, plataforma, titulo Where titulo.id = videojuego.id_titulo AND users.id = videojuego.id_usuario AND plataforma.id = videojuego.id_plataforma AND condicion.id = videojuego.id_condicion AND users.id = 1*/
 
@@ -159,6 +164,7 @@ class User extends Authenticatable implements JWTSubject
             "id"=>$this->id,
             "nombre"=>$this->nombre,
             "correo"=>$this->correo,
+            "rol"=>self::rol_usuario($this->id),
             
         ];
     }

@@ -1,7 +1,7 @@
 
 <div class="col">
 <div class="card " style="width: 13rem; margin-top: 2rem;">
-  <img class="card-img-top img-fluid" src="{{ url('img/titulos/'. $titulo['id_titulo'] .'.jpg') }}" alt="Card image cap">
+  <img class="card-img-top img-fluid" src="{{ url('img/titulos/'. $titulo['id_titulo'] .'.jpg') }}" alt="Card image cap" style="height: 19rem">
   <div class="card-body">
     
    <button 

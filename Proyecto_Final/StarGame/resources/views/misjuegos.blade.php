@@ -29,6 +29,10 @@
   </div>
 </div>
 
+@if(empty($juegos))
+<h4>No hay resultados</h4>
+@endif
+
 @if(!empty($juegos))
 <div class="container">
   <div class="row">

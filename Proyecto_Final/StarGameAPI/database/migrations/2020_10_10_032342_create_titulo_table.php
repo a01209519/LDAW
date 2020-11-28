@@ -19,7 +19,7 @@ class CreateTituloTable extends Migration
             $table->string('edicion')->nullable();
             $table->string('version')->nullable();
             $table->string('descripcion');
-            $table->string('ruta')->nullable();
+            $table->integer('estatus');
         });
     }
 
