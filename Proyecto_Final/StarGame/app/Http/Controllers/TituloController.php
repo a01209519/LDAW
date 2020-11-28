@@ -10,7 +10,7 @@ class TituloController extends Controller
     
     public function index()
     {
-        //Obtendo datos de mi API a traves del modelo Appointments con el metodo getAppointments.
+        
         $titulo = Titulo::getTitles();
         return view('home',["titulo"=>$titulo]);
     }
@@ -19,12 +19,19 @@ class TituloController extends Controller
     public function create()
     {
         //
+        //echo "Si";
     }
 
     
     public function store(Request $request)
     {
         //
+        $var = Titulo::save_Title($request);
+        if($var == true){
+            return redirect('/');
+        }else{
+            return redirect('/');
+        }
     }
 
     

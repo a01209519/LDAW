@@ -27,6 +27,13 @@ class TituloController extends Controller
     public function store(Request $request)
     {
         //
+        $bool = Titulo::guardar_Titulo($request);
+        if($bool == false){
+            return response()->json(['error' => 'Error'], 500);
+        }else{
+            return Titulo::all()->last()->id;
+        }
+
     }
 
     

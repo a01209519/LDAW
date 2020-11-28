@@ -3,6 +3,7 @@
 namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 use App\Http\Models\User;
 
 class Titulo extends Model{
@@ -23,5 +24,18 @@ class Titulo extends Model{
 		return $this->belongsToMany(User::class, 'favorito', 'id_titulo', 'id_usuario');
 	}
 
+	public static function guardar_Titulo(Request $request){
+		$titulo = new Titulo;
+		$titulo->nombre = $request->input('nombre');
+		$titulo->version = $request->input('vers');
+		$titulo->descripcion = $request->input('des');
+		$titulo->save();
+		if($titulo->save()){
+			return true;
+		}else{
+			return false;
+		}
+
+	}
 
 }

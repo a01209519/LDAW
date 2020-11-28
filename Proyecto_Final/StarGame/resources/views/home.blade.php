@@ -22,8 +22,7 @@
     @if(session('id'))
     <div class="col-1">
       <br>
-      <button type="button" class="btn btn-success btn-sm" href="#"><i class="fas fa-plus"></i></button>
-
+      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalTitulo"><i class="fas fa-plus"></i></button>
     </div>
     @endif
   </div>
@@ -66,5 +65,5 @@ $(document).ready(function(){
 </div>
 </div>
 @endif
-
+<x-modalRegistrarTitulo/>
 @endsection
