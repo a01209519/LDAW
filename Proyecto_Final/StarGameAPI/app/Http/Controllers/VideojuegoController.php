@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Videojuego;
+use App\Http\Models\Videojuego;
 use Illuminate\Http\Request;
 
 class VideojuegoController extends Controller
@@ -26,6 +26,16 @@ class VideojuegoController extends Controller
     public function store(Request $request)
     {
         //
+        $user = auth()->user();
+        if($user!=null){
+            $bool = Videojuego::guardar_videojuego($request);
+            if($bool == false){
+                return response()->json(['error' => 'Error'], 500);
+            }else{
+                return response()->json(['success' => 'Success'], 200);            }
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
     }
 
     /**

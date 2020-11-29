@@ -98,7 +98,7 @@ class User extends Authenticatable implements JWTSubject
     public static function juegos_usuario($id){
         /*Select titulo.nombre, condicion.nombre, plataforma.nombre From users,videojuego, condicion, plataforma, titulo Where titulo.id = videojuego.id_titulo AND users.id = videojuego.id_usuario AND plataforma.id = videojuego.id_plataforma AND condicion.id = videojuego.id_condicion AND users.id = 1*/
 
-        $juegos = self::select('titulo.id as titulo_id','videojuego.id as id','titulo.nombre as Titulo','condicion.nombre as Condicion','plataforma.nombre as Plataforma')
+        $juegos = self::select('titulo.id as titulo_id','videojuego.id as id','titulo.nombre as Titulo','condicion.nombre as Condicion','plataforma.nombre as Plataforma','titulo.version as titulo_version')
                         ->Where('users.id',$id)
                         ->join('videojuego','users.id','videojuego.id_usuario')
                         ->join('titulo','titulo.id','videojuego.id_titulo')
@@ -111,6 +111,7 @@ class User extends Authenticatable implements JWTSubject
             $response[$id] = [
                 "Id"=>$item->id,
                 "id_titulo"=>$item->titulo_id,
+                "Edicion"=>$item->titulo_version,
                 "Titulo"=>$item->Titulo,
                 "Condicion"=>$item->Condicion,
                 "Plataforma"=>$item->Plataforma

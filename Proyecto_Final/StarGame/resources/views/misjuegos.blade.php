@@ -22,7 +22,7 @@
     @if(session('id'))
     <div class="col-1">
       <br>
-      <button type="button" class="btn btn-success btn-sm" href="#"><i class="fas fa-plus"></i></button>
+      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalRegistrarJuego"><i class="fas fa-plus"></i></button>
 
     </div>
     @endif
@@ -37,14 +37,14 @@
 <div class="container">
   <div class="row">
   <section class="row catalog card-group">
- @foreach($juegos as $id => $juegos)
+ @foreach($juegos as $id => $juego)
 
-     <x-mijuegoCard :id="$id" :titulo="$juegos" />
+     <x-mijuegoCard :id="$id" :titulo="$juego" />
 
  @endforeach 
 </section>
 </div>
 </div>
 @endif
-
+<x-modalRegistrarJuego :titulos="$titulos" :plataformas="$plataformas" :condiciones="$condiciones"/>
 @endsection

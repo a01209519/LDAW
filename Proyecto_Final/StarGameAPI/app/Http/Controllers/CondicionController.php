@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Condicion;
+use App\Http\Models\Condicion;
 use Illuminate\Http\Request;
 
 class CondicionController extends Controller
@@ -15,6 +15,8 @@ class CondicionController extends Controller
     public function index()
     {
         //
+        $condiciones = Condicion::all();
+        return $condiciones;
     }
 
     /**

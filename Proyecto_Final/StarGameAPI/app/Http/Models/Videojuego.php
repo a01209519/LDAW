@@ -3,6 +3,7 @@
 namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Videojuego extends Model{
     /***************************************
@@ -36,6 +37,20 @@ class Videojuego extends Model{
 
 	public function user(){
 		return $this->belongsTo("App\Http\Models\User");
+	}
+
+	public static function guardar_videojuego(Request $request){
+		$videojuego = new Videojuego;
+		$videojuego->id_usuario = $request->input('id_usuario');
+		$videojuego->id_titulo = $request->input('titulo');
+		$videojuego->id_plataforma = $request->input('plataforma');
+		$videojuego->id_condicion = $request->input('condicion');
+		$videojuego->save();
+		if($videojuego->save()){
+			return true;
+		}else{
+			return false;
+		}
 	}
 
 }

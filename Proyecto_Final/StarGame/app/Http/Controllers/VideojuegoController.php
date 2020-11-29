@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Videojuego;
+use App\Models\Titulo;
+use App\Models\Plataforma;
+use App\Models\Condicion;
 
 class VideojuegoController extends Controller
 {
@@ -36,6 +39,12 @@ class VideojuegoController extends Controller
     public function store(Request $request)
     {
         //
+        $bool = Videojuego::save_user_game($request);
+        if($bool==true){
+            return redirect()->route('mis_juegos')->with('mensaje','Se guardo el videojuego de manera exitosa');
+        }else if($bool = false){
+            return redirect('mis_juegos')->with('mensaje','Hubo un error al guardar');
+        }
     }
 
     /**
@@ -84,13 +93,25 @@ class VideojuegoController extends Controller
     }
 
     public function mis_juegos(){
+        //Obtenemos juegos
         $juegos = Videojuego::get_user_games(session('id'));
+        //Obtenemos los titulos para poder registrar un videojuego
+        $titulos = Titulo::getTitles();
+        //Obtenemos las plataformas
+        $plataformas = Plataforma::getPlatforms();
+        //Obtenemos las posibles condiciones de un juego
+        $condiciones = Condicion::getConditions();
         //Si la función arroja falso, quiere decir que hay que volverse
         // a logear
         if($juegos==false){
             return redirect()->route('cerrar_sesion');
         }else{
-            return view('misjuegos',['juegos'=>$juegos]);
+            return view('misjuegos',[
+                'juegos'=>$juegos,
+                'titulos'=>$titulos,
+                'plataformas'=>$plataformas,
+                'condiciones'=>$condiciones
+            ]);
         }
     }
 }

@@ -37,6 +37,12 @@ Route::post('/sugerencias/accion','TituloController@sugerencia_accion')->name('s
 
 Route::apiResource('resena','ResenaController');
 
+Route::apiResource('plataforma','PlataformaController');
+
+Route::apiResource('condicion','CondicionController');
+
+Route::apiResource('videojuego','VideojuegoController');
+
 //Rutas para jwt
 
 Route::group([
