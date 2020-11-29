@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','TituloController@index');
 Route::resource('/titulos','TituloController');
+Route::get('/sugerencias','TituloController@sugerencia')->name('sugerencias');
+Route::get('/sugerencia_a/{id}','TituloController@aceptar')->name('aceptar_sugerencia');
+Route::get('/sugerencia_r/{id}','TituloController@rechazar')->name('rechazar_sugerencia');
 
 Route::post('/aute','Aute@iniciar_sesion')->name('iniciar_sesion');
 Route::get('/aute','Aute@cerrar_sesion')->name('cerrar_sesion');

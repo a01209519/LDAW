@@ -23,6 +23,10 @@
                 <a class="dropdown-item" href="#">Mi Cuenta</a>
                 <a class="dropdown-item" href="{{route('mis_juegos')}}">Mis Juegos</a>
                 <div class="dropdown-divider"></div>
+                @if(session('rol')==2)
+                <a class="dropdown-item" href="{{route('sugerencias')}}">Sugerencias de Titulo</a>
+                <div class="dropdown-divider"></div>
+                @endif
 
                 <div class="row justify-content-center">
                   <a class="btn btn-danger btn-sm" href="{{route('cerrar_sesion')}}">Cerrar Sesión</a>

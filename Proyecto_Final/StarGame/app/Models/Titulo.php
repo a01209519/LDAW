@@ -18,6 +18,13 @@ class Titulo extends Model
         return $response->json();
     }
 
+    public static function getSugestions(){
+
+        //cargar datos del API
+        $response = Http::get("http://127.0.0.1:8001/api/sugerencias");
+        return $response->json();
+    }
+
 
     //SHOW
     public static function getTitle($id){
@@ -55,6 +62,19 @@ class Titulo extends Model
         }else{
             Storage::put('/img/titulos/'.$response.'.jpg',$img);
             return false;
+        }
+    }
+
+    public static function aceptar_rechazar($id,$accion){
+        $data = [
+            'id'=>$id,
+            'accion'=>$accion
+        ];
+        $response = Http::post('http://127.0.0.1:8001/api/sugerencias/accion',$data);
+        if(!$response->failed()){
+            if($response=='2'){
+                Storage::delete('/img/titulos/'.$id.'.jpg');
+            }
         }
     }
 }

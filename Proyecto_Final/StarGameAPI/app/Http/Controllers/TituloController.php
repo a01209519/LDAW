@@ -36,6 +36,18 @@ class TituloController extends Controller
 
     }
 
+    public function sugerencia(){
+    $titulos = Titulo::all()->where('estatus','=',2)->sortBy('nombre');
+        return $titulos; 
+    }
+
+    public function sugerencia_accion(Request $request){
+        //Obtenemos el resultado de la funcion sugerencia
+        $var = Titulo::sugerencia($request);
+        return $var;
+
+    }
+
     
     public function show($titulo)
     {

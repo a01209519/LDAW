@@ -29,6 +29,9 @@ Route::get('/user/aute','UserController@iniciar_sesion')->name('iniciar_sesion')
 Route::get('/user/vg/{id}','UserController@user_videojuegos')->name('user_videojuegos');
 
 Route::resource('titulos', 'TituloController');
+Route::get('/sugerencias','TituloController@sugerencia')->name('sugerencias');
+
+Route::post('/sugerencias/accion','TituloController@sugerencia_accion')->name('sugerencias_accion');
 
 //Route::get('/resena/{id}','ResenaController@show')->name('resena_show');
 

@@ -43,4 +43,18 @@ class Titulo extends Model{
 
 	}
 
+	public static function sugerencia(Request $request){
+		$data = $request->all();
+		if($data['accion']==1){
+			$titulo = Titulo::find($data['id']);
+			$titulo->estatus = 1;
+			$titulo->save();
+			return 1;
+		}else if($data['accion']==2){
+			$titulo = Titulo::find($data['id']);
+			$titulo->delete();
+			return 2;
+		}
+	}
+
 }

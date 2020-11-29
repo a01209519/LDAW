@@ -46,6 +46,21 @@ class TituloController extends Controller
         ]);
 
     }
+
+    public function sugerencia(){
+        $titulo = Titulo::getSugestions();
+        return view('sugerencias',["titulo"=>$titulo]);
+    }
+
+    public function aceptar($id){
+        Titulo::aceptar_rechazar($id,1);
+        return redirect('sugerencias');
+    }
+    public function rechazar($id){
+        Titulo::aceptar_rechazar($id,2);
+        return redirect('sugerencias');
+    }
+
     public function edit(Titulo $titulo)
     {
         //
