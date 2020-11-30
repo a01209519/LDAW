@@ -120,6 +120,10 @@ class User extends Authenticatable implements JWTSubject
         return $response;
     }
 
+    public static function usuario_oferta(){
+
+        //select oferta.id as id ,oferta.id_usuario_oferta as Ofertador, oferta.id_usuario_recibe as Receptor, oferta.id_videojuego_oferta as Ofertado, oferta.id_videojuego_recibe as Recibido, oferta.id_estatus as Estatus, oferta.created_at as Registrado, titulo.id as id_titulo,titulo.nombre as Nombre, titulo.version as Edición ,plataforma.nombre as Plataforma ,condicion.nombre as Condicion from titulo,plataforma,condicion,oferta,videojuego where oferta.id_videojuego_recibe = videojuego.id AND titulo.id = videojuego.id_titulo AND videojuego.id_plataforma = plataforma.id AND videojuego.id_condicion = condicion.id
+    }
 
      public static function usuario_resena($id){
         /*Select titulo.nombre, condicion.nombre, plataforma.nombre From users,videojuego, condicion, plataforma, titulo Where titulo.id = videojuego.id_titulo AND users.id = videojuego.id_usuario AND plataforma.id = videojuego.id_plataforma AND condicion.id = videojuego.id_condicion AND users.id = 1*/

@@ -41,7 +41,7 @@
               <div class="col-8">
                 
                 <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="img">
+                  <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" name="img" required="true">
                   <label class="custom-file-label" for="inputGroupFile01"></label>
                 </div>
               </div>

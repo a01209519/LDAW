@@ -64,14 +64,12 @@ $(document).ready(function(){
 @endif
 @if(!empty($titulo))
 <div class="container">
-  <div class="row">
-  <section class="row catalog card-group">
+  <div class="row row-cols-2 row-cols-md-4">
  @foreach($titulo as $id => $titulo)
 
      <x-gameCard :id="$id" :titulo="$titulo" />
 
  @endforeach 
-</section>
 </div>
 </div>
 @endif

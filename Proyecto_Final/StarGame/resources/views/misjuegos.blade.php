@@ -35,14 +35,12 @@
 
 @if(!empty($juegos))
 <div class="container">
-  <div class="row">
-  <section class="row catalog card-group">
+<div class="row row-cols-2 row-cols-md-4">
  @foreach($juegos as $id => $juego)
 
      <x-mijuegoCard :id="$id" :titulo="$juego" />
 
  @endforeach 
-</section>
 </div>
 </div>
 @endif

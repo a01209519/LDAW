@@ -20,7 +20,8 @@
                 <label for="fname">Nombre:</label><br>
               </div>
               <div class="form-group col-8">
-                <select class="form-control" name="titulo">
+                <select class="form-control" name="titulo" required="true">
+                  <option value="" disabled selected>Selecciona un titulo</option>
                   @foreach($titulos as $id => $titulo)
                    <option value="{{$titulo['id']}}">{{$titulo['nombre']}} Versión {{$titulo['version']}}</option>
                   @endforeach
@@ -30,7 +31,8 @@
                 <label for="fname">Plataforma:</label><br>
               </div>
               <div class="form-group col-8">
-                <select class="form-control" name="plataforma">
+                <select class="form-control" name="plataforma" required="true">
+                  <option value="" disabled selected>Selecciona una plataforma</option>
                   @foreach($plataformas as $id => $plataforma)
                    <option value="{{$plataforma['id']}}">{{$plataforma['nombre']}}</option>
                   @endforeach
@@ -41,7 +43,8 @@
                 <label for="fname">Condición del juego:</label><br>
               </div>
               <div class="form-group col-8">
-                <select class="form-control" name="condicion">
+                <select class="form-control" name="condicion" required="true">
+                  <option value="" disabled selected>Selecciona una condición</option>
                   @foreach($condiciones as $id => $condicion)
                    <option value="{{$condicion['id']}}">{{$condicion['nombre']}}</option>
                   @endforeach

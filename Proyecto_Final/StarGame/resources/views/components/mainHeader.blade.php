@@ -1,16 +1,19 @@
-<nav class="navbar navbar-expand-lg main-header">
-  <a class="navbar-brand navLogo" href="#">
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <a class="navbar-brand navLogo" href="#">
     <img class="logo" src="{{ url('img/logo/logo.png') }}" alt="Logo" style="width:80px;">
   </a>
   <a class="navbar-brand titulos" href="/" id="navbar-title">GTC Gaming</a>
-  <!-- this button is for mobile devices -->
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-      
-      <!-- SESIÓN -->
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    
+      <div class="col-11">
+      </div>
+    <div class="navbar-nav">
       <li class="nav-item-account">
 
         <div class="dropdown">
@@ -51,7 +54,7 @@
             </div>
         </div>
       </li>
-    </ul>
+    </div>
   </div>
   <x-modalLogin/>
 </nav>

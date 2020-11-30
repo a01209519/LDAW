@@ -13,9 +13,6 @@
             <p class="subtitulos"><strong>Titulo: &nbsp</strong>{{$titulo['nombre']}}<br></p>
           </div>
           <div class="row justify-content-left">
-            <p class="subtitulos"><strong>Plataforma:&nbsp</strong>{{$titulo['edicion']}}<br></p>
-          </div>
-          <div class="row justify-content-left">
             <p class="subtitulos"><strong>Versión:&nbsp </strong>{{$titulo['version']}}</p>
           </div>
           <div class="row justify-content-left">

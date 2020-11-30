@@ -27,9 +27,6 @@ class TituloController extends Controller
     public function store(Request $request)
     {
         //
-        $request->validate([
-        'img'=>'mimetypes:jpg,jpeg,png'
-        ]);
         $var = Titulo::save_Title($request);
         if($var == true){
             return redirect('/');
