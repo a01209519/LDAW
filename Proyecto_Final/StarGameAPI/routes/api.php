@@ -25,6 +25,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 	$user = User::findOrFail(1);
     return $user->titulo;
 });*/
+
+
 Route::get('/user/aute','UserController@iniciar_sesion')->name('iniciar_sesion');
 Route::get('/user/vg/{id}','UserController@user_videojuegos')->name('user_videojuegos');
 
@@ -41,7 +43,9 @@ Route::apiResource('plataforma','PlataformaController');
 
 Route::apiResource('condicion','CondicionController');
 
-Route::apiResource('videojuego','VideojuegoController');
+Route::resource('videojuego','VideojuegoController');
+
+Route::get('/ofertas/{id}','VideojuegoController@ofertas_videojuego');
 
 //Rutas para jwt
 

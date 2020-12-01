@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Http\Models\Rol;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+use App\Http\Models\Titulo;
 
 class User extends Authenticatable implements JWTSubject
 {
@@ -99,7 +100,10 @@ class User extends Authenticatable implements JWTSubject
         /*Select titulo.nombre, condicion.nombre, plataforma.nombre From users,videojuego, condicion, plataforma, titulo Where titulo.id = videojuego.id_titulo AND users.id = videojuego.id_usuario AND plataforma.id = videojuego.id_plataforma AND condicion.id = videojuego.id_condicion AND users.id = 1*/
 
         $juegos = self::select('titulo.id as titulo_id','videojuego.id as id','titulo.nombre as Titulo','condicion.nombre as Condicion','plataforma.nombre as Plataforma','titulo.version as titulo_version')
-                        ->Where('users.id',$id)
+                        ->Where([
+                            ['users.id',$id],
+                            ['videojuego.estatus',1],
+                        ])
                         ->join('videojuego','users.id','videojuego.id_usuario')
                         ->join('titulo','titulo.id','videojuego.id_titulo')
                         ->join('plataforma','plataforma.id','videojuego.id_plataforma')
@@ -120,10 +124,26 @@ class User extends Authenticatable implements JWTSubject
         return $response;
     }
 
-    public static function usuario_oferta(){
+    public static function usuario_oferta($id){
 
         //select oferta.id as id ,oferta.id_usuario_oferta as Ofertador, oferta.id_usuario_recibe as Receptor, oferta.id_videojuego_oferta as Ofertado, oferta.id_videojuego_recibe as Recibido, oferta.id_estatus as Estatus, oferta.created_at as Registrado, titulo.id as id_titulo,titulo.nombre as Nombre, titulo.version as Edición ,plataforma.nombre as Plataforma ,condicion.nombre as Condicion from titulo,plataforma,condicion,oferta,videojuego where oferta.id_videojuego_recibe = videojuego.id AND titulo.id = videojuego.id_titulo AND videojuego.id_plataforma = plataforma.id AND videojuego.id_condicion = condicion.id
+
+        $ofertas = self::select('oferta.id_usuario_oferta as id_usuario_oferta','oferta.id_usuario_recibe as id_usuario_recibe','oferta.id_videojuego_oferta as given','oferta.id_videojuego_recibe as recieved','oferta.id_estatus as estatus','titulo.id as titulo_id','videojuego.id as id','titulo.nombre as Titulo','condicion.nombre as Condicion','plataforma.nombre as Plataforma','titulo.version as titulo_version')
+                        ->Where([
+                            ['users.id',$id],
+                            ['videojuego.estatus',1],
+                        ])
+                        ->join('oferta','users.id','oferta.id_usuario_recibe')
+                        ->join('videojuego','videojuego.id','oferta.id_videojuego_recibe')
+                        ->join('titulo','titulo.id','videojuego.id_titulo')
+                        ->join('plataforma','plataforma.id','videojuego.id_plataforma')
+                        ->join('condicion','condicion.id','videojuego.id_condicion')
+                        ->join('estatus','estatus.id','oferta.id_estatus')
+                        ->get();
+                        return $ofertas;
     }
+
+   
 
      public static function usuario_resena($id){
         /*Select titulo.nombre, condicion.nombre, plataforma.nombre From users,videojuego, condicion, plataforma, titulo Where titulo.id = videojuego.id_titulo AND users.id = videojuego.id_usuario AND plataforma.id = videojuego.id_plataforma AND condicion.id = videojuego.id_condicion AND users.id = 1*/

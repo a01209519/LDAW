@@ -17,7 +17,7 @@
     <div class="col-4">
     </div>
     <div class="col-s4">
-      <h2 class="titulos text-center text-uppercase">Videojuegos</h2>
+      <h2 class="titulos text-center text-uppercase">Sugerencias</h2>
     </div>
   </div>
 </div>

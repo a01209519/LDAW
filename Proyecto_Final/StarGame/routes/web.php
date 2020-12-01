@@ -24,3 +24,4 @@ Route::get('/aute','Aute@cerrar_sesion')->name('cerrar_sesion');
 Route::get('/user/gm','VideojuegoController@mis_juegos')->name('mis_juegos');
 Route::post('/user/gm','VideojuegoController@store')->name('guardar_mis_juegos');
 Route::post('/resena','ResenaController@registrar_resena')->name('registrar_resena');
+Route::resource('/ofertas','OfertasController');

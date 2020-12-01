@@ -57,7 +57,7 @@ class Titulo extends Model
             $data['estatus'] = 2;
         }
         $response = Http::post('http://127.0.0.1:8001/api/titulos',$data);
-        if($response->serverError()){
+        if($response->failed()){
         return true;    
         }else{
             Storage::put('/img/titulos/'.$response.'.jpg',$img);

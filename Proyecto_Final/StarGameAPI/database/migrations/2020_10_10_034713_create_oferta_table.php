@@ -15,17 +15,13 @@ class CreateOfertaTable extends Migration
     {
         Schema::create('oferta', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('id_usuario_oferta');
-            $table->unsignedBigInteger('id_usuario_recibe');
             $table->unsignedBigInteger('id_videojuego_oferta');
             $table->unsignedBigInteger('id_videojuego_recibe');
             $table->unsignedBigInteger('id_estatus');
 
             $table->foreign('id_estatus')->references('id')->on('estatus');
-            $table->foreign('id_videojuego_recibe')->references('id')->on('videojuego');
-            $table->foreign('id_videojuego_oferta')->references('id')->on('videojuego');
-            $table->foreign('id_usuario_recibe')->references('id_usuario')->on('videojuego');
-            $table->foreign('id_usuario_oferta')->references('id_usuario')->on('videojuego');
+            $table->foreign('id_videojuego_recibe')->references('id')->on('videojuego')->onDelete('cascade');
+            $table->foreign('id_videojuego_oferta')->references('id')->on('videojuego')->onDelete('cascade');
             $table->timestamps();
         });
     }

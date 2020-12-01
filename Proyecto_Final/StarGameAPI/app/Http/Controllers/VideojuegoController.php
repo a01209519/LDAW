@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Models\Videojuego;
 use Illuminate\Http\Request;
+use App\User;
 
 class VideojuegoController extends Controller
 {
@@ -32,10 +33,24 @@ class VideojuegoController extends Controller
             if($bool == false){
                 return response()->json(['error' => 'Error'], 500);
             }else{
-                return response()->json(['success' => 'Success'], 200);            }
+                return response()->json(['success' => 'Success'], 200);
+            }
         }else{
             return response()->json(['error' => 'Unauthorized'], 401);
         }
+    }
+
+    //Function para traer todas las ofertas de un videojuego
+
+    public function ofertas_videojuego($id){
+        
+        $user = auth()->user();
+        if($user!=null){
+            return $ofertas = Videojuego::videojuego_oferta($id);
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
     }
 
     /**
@@ -44,9 +59,15 @@ class VideojuegoController extends Controller
      * @param  \App\Videojuego  $videojuego
      * @return \Illuminate\Http\Response
      */
-    public function show(Videojuego $videojuego)
+    public function show($id)
     {
         //
+        $user = auth()->user();
+        if($user!=null){
+            return $ofertas = Videojuego::datos_videojuego($id);
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
     }
 
     /**

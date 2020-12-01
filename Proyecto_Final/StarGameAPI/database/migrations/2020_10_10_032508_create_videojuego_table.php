@@ -19,9 +19,10 @@ class CreateVideojuegoTable extends Migration
             $table->unsignedBigInteger('id_titulo');
             $table->unsignedBigInteger('id_plataforma');
             $table->unsignedBigInteger('id_condicion');
+            $table->integer('estatus');
 
-            $table->foreign('id_usuario')->references('id')->on('users');
-            $table->foreign('id_titulo')->references('id')->on('titulo');
+            $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('id_titulo')->references('id')->on('titulo')->onDelete('cascade');
             $table->foreign('id_plataforma')->references('id')->on('plataforma');
             $table->foreign('id_condicion')->references('id')->on('condicion');
             

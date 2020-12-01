@@ -21,9 +21,9 @@ class CreateResenaTable extends Migration
             $table->text('comentarios');
             $table->integer('likes')->nullable();
 
-            $table->foreign('id_titulo')->references('id')->on('titulo');
+            $table->foreign('id_titulo')->references('id')->on('titulo')->onDelete('cascade');
             $table->foreign('id_tipo')->references('id')->on('tiporesena');
-            $table->foreign('id_usuario')->references('id')->on('users');
+            $table->foreign('id_usuario')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

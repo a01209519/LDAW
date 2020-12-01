@@ -27,7 +27,7 @@
 
       <div class="modal-footer">
         <div class="row">
-          <a class="btn btn-secondary" href="{{url('titulos/'. $titulo['id_titulo'])}}">Ver mas</a>
+          <a class="btn btn-secondary" href="{{route('ofertas.show',$titulo['Id'])}}">Ver Ofertas</a>
         </div>
         <div class="row">
           <a class="btn btn-danger" href="#" onclick="return confirm('<?php echo "¿Deseas borrar ".$titulo['Titulo']."?"?>')">Eliminar</a>

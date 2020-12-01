@@ -15,6 +15,7 @@ class TituloController extends Controller
     public function index()
     {
         $titulos = Titulo::all()->where('estatus','=',1)->sortBy('nombre');
+        //$titulos = Titulo::paginate(2);
         return $titulos;
     }
 

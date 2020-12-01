@@ -27,6 +27,7 @@ class Videojuego extends Model
         $data['plataforma'] = (int)$data['plataforma'];
         $data['condicion'] = (int)$data['condicion'];
         $data['id_usuario'] = session('id');
+        $data['estatus'] = 1;
         $response = Http::withToken(session('jwt'))->post(env('API').'videojuego',$data);
         if(!$response->failed()){
             return true;
