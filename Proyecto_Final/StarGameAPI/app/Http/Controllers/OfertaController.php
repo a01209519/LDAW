@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Oferta;
 use Illuminate\Http\Request;
+use App\Http\Models\Oferta;
 
 class OfertaController extends Controller
 {
@@ -26,6 +26,17 @@ class OfertaController extends Controller
     public function store(Request $request)
     {
         //
+        $user = auth()->user();
+        if($user!=null){
+            $bool = Oferta::guardar_oferta($request);
+            if($bool == false){
+                return response()->json(['error' => 'Error'], 500);
+            }else{
+                return response()->json(['success' => 'Success'], 200);
+            }
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
     }
 
     /**

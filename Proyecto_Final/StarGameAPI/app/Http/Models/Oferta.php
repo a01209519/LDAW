@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Oferta extends Model{//pivot
     
@@ -25,4 +26,19 @@ class Oferta extends Model{//pivot
 	public function videojuego(){
 		return $this->belongsToMany("App\Models\Videojuego");
 	}
+
+	public static function guardar_oferta(Request $request){
+		$oferta = new Oferta;
+		$oferta->id_videojuego_oferta = $request->input('id_videojuego_ofertado');
+		$oferta->id_videojuego_recibe = $request->input('id_videojuego_recibido');
+		$oferta->id_estatus = 3;
+		$oferta->save();
+		if($oferta->save()){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	
 }

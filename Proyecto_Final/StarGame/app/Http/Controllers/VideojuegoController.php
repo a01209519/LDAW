@@ -120,4 +120,18 @@ class VideojuegoController extends Controller
             ]);
         }
     }
+
+    public function juegos_disponibles($id_titulo){
+        $juegos = Videojuego::get_title_games($id_titulo);
+        $juegos_usuario = Videojuego::get_user_games(session('id'));
+        if($juegos=='false' || $juegos_usuario=='false'){
+            return redirect()->route('cerrar_sesion');
+        }else{
+            return view('realizar_oferta',[
+                'juegos'=>$juegos,
+                'juegos_usuario'=>$juegos_usuario
+            ]);
+        }
+
+    }
 }

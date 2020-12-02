@@ -37,6 +37,13 @@ class OfertasController extends Controller
     public function store(Request $request)
     {
         //
+
+        $var = Oferta::saveOffer($request);
+        if($var == false){
+            return redirect('/')->with('error','No se pudo completar el registro');
+        }else{
+            return redirect('/')->with('message','Oferta registrada');
+        }        
     }
 
     /**

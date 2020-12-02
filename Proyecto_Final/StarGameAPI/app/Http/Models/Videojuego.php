@@ -114,4 +114,31 @@ class Videojuego extends Model{
         }
     }
 
+    //Functión que busca todos los videojuegos por el id del titulo
+    public static function videojuego_titulo($id_titulo,$id_user){
+        $videojuegos = self::select('videojuego.id as videojuego_id','titulo.id as id_titulo','titulo.version as version','titulo.nombre as Titulo','condicion.nombre as Condicion','plataforma.nombre as Plataforma')
+                    ->Where([
+                        ['videojuego.id_usuario','!=',$id_user],
+                        ['videojuego.id_titulo',$id_titulo],
+                        ['videojuego.estatus',1]
+                    ])
+                    ->join('titulo','titulo.id','videojuego.id_titulo')
+                    ->join('condicion','condicion.id','videojuego.id_condicion')
+                    ->join('plataforma','plataforma.id','videojuego.id_plataforma')
+                    ->get();
+        $response = [];
+        foreach($videojuegos as $item){
+            $id = $item->videojuego_id;
+            $response[$id] = [
+                "Id"=>$item->videojuego_id,
+                "id_titulo"=>$item->id_titulo,
+                "Edicion"=>$item->version,
+                "Titulo"=>$item->Titulo,
+                "Condicion"=>$item->Condicion,
+                "Plataforma"=>$item->Plataforma
+            ];
+        } return $response;
+
+    }
+
 }

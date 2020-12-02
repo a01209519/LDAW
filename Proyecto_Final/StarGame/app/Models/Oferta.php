@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 
 class Oferta extends Model
 {
@@ -21,6 +22,17 @@ class Oferta extends Model
             ];
         }else{
         	return false;
+        }
+    }
+
+    public static function saveOffer(Request $request){
+        $data = $request->all();
+        unset($data['_token']);
+        $response = Http::withToken(session('jwt'))->post(env('API').'oferta',$data);
+        if(!$response->failed()){
+            return true;
+        }else{
+            return false;
         }
     }
 }

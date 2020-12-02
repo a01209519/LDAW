@@ -19,8 +19,7 @@ class DatabaseSeeder extends Seeder
         	UserRol::class,
         	Favorito::class,
         	Resena::class,
-        	Videojuego::class,
-        	Oferta::class
+        	Videojuego::class
         ]);
     }
 }

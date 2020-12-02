@@ -17,12 +17,13 @@
     <div class="col-4">
     </div>
     <div class="col-s4">
-      <h2 class="titulos text-center text-uppercase">Titulos</h2>
+      <h2 class="titulos text-center text-uppercase">Videojuegos</h2>
     </div>
     @if(session('id'))
     <div class="col-1">
       <br>
-      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalTitulo"><i class="fas fa-plus"></i></button>
+      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalRegistrarJuego"><i class="fas fa-plus"></i></button>
+
     </div>
     @endif
   </div>
@@ -40,7 +41,6 @@
     </div>
   </div>
   @endif
-
   @if(session('error'))
   <div class="row">
     <div class="col-4">
@@ -55,43 +55,44 @@
     </div>
   </div>
   @endif
+  @if(empty($juegos))
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div clas="col-4">
+  <h4>No hay resultados</h4>
+</div>
+  </div>
+@endif
 </div>
 
-@if(session('alerta'))
-<div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="height: 200px;">
-<div class="toast">
-  <div class="toast-header">
-    Bienvenida
-  </div>
-  <div class="toast-body">
-    Bienvenido de vuelta {{session('nombre')}}
-  </div>
-</div>
-</div>
-<script>
-$(document).ready(function(){
-  $('.toast').toast({
-    delay:5000
-  });
-  $('.toast').toast('show');
-});
-</script>
-<?php session()->forget('alerta');?>
-@endif
-
-@if (empty($titulo))
-<h4 align="center">No se encontraron resultados</h4>
-@endif
-@if(!empty($titulo))
+@if(empty($juegos_usuario))
+@if(!empty($juegos))
 <div class="container">
-  <div class="row row-cols-2 row-cols-md-4">
- @foreach($titulo as $id => $titulo)
+<div class="row row-cols-2 row-cols-md-4">
+ @foreach($juegos as $id => $juego)
 
-     <x-gameCard :id="$id" :titulo="$titulo" />
+     <x-mijuegoCard :id="$id" :titulo="$juego"/>
 
  @endforeach 
 </div>
 </div>
 @endif
-<x-modalRegistrarTitulo/>
+@endif
+
+@if(!empty($juegos_usuario))
+@if(!empty($juegos))
+<div class="container">
+<div class="row row-cols-2 row-cols-md-4">
+ @foreach($juegos as $id => $juego)
+
+     <x-realizar_ofertaCard :id="$id" :titulo="$juego" :variable="$juegos_usuario"/>
+
+ @endforeach 
+</div>
+</div>
+@endif
+@endif
+
+
 @endsection

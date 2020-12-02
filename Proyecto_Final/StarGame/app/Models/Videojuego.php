@@ -44,4 +44,15 @@ class Videojuego extends Model
             return true;
         }
     }
+
+    public static function get_title_games($id_titulo){
+        //$user_game = Http::get('http://127.0.0.1:8001/api/user/vg/'.$id);
+        $title_game = Http::withToken(session('jwt'))->get(env('API').'videojuego/titulo/'.$id_titulo.'/'.session('id'));
+        //Si la respuesta falla, regresa falso
+        if($title_game->failed()){
+            return 'false';
+        }else{
+            return $title_game->json();
+        }
+    }
 }

@@ -44,8 +44,10 @@ Route::apiResource('plataforma','PlataformaController');
 Route::apiResource('condicion','CondicionController');
 
 Route::resource('videojuego','VideojuegoController');
+Route::resource('oferta','OfertaController');
 
 Route::get('/ofertas/{id}','VideojuegoController@ofertas_videojuego');
+Route::get('/videojuego/titulo/{id}/{id_user}','VideojuegoController@videojuegos_titulo');
 
 //Rutas para jwt
 

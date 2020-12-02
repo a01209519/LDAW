@@ -103,4 +103,14 @@ class VideojuegoController extends Controller
             return response()->json(['error' => 'Unauthorized'], 401);
         }
     }
+
+    public function videojuegos_titulo($id_titulo,$id_user){
+        $user = auth()->user();
+        if($user!=null){
+            $videojuegos = Videojuego::videojuego_titulo($id_titulo,$id_user);
+            return $videojuegos;
+        }else{
+        return response()->json(['error' => 'Unauthorized'], 401); 
+        }
+    }
 }
