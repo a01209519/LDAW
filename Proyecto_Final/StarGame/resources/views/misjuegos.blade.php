@@ -55,11 +55,16 @@
     </div>
   </div>
   @endif
+  @if(empty($juegos))
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div clas="col-4">
+  <h4>No hay resultados</h4>
 </div>
-
-@if(empty($juegos))
-<h4>No hay resultados</h4>
+  </div>
 @endif
+</div>
 
 @if(!empty($juegos))
 <div class="container">

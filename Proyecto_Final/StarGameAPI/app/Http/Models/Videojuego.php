@@ -103,4 +103,15 @@ class Videojuego extends Model{
 
     }
 
+    public static function borrarJuego($id){
+        $videojuego = self::find($id);
+        $videojuego->delete();
+        $videojuego = self::find($id);
+        if($videojuego==null){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
 }

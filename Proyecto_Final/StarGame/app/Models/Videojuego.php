@@ -14,7 +14,7 @@ class Videojuego extends Model
     	$user_game = Http::withToken(session('jwt'))->get(env('API').'user/vg/'.$id);
     	//Si la respuesta falla, regresa falso
     	if($user_game->failed()){
-    		return false;
+    		return 'false';
     	}else{
     		return $user_game->json();
     	}
@@ -33,6 +33,15 @@ class Videojuego extends Model
             return true;
         }else{
             return false;
+        }
+    }
+    public static function delete_user_game($id){
+        $response = Http::withToken(session('jwt'))->delete(env('API').'videojuego/'.$id);
+        //Si la respuesta falla, regresa falso
+        if($response->failed()){
+            return false;
+        }else{
+            return true;
         }
     }
 }

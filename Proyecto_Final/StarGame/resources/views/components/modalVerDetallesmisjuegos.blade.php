@@ -30,7 +30,7 @@
           <a class="btn btn-secondary" href="{{route('ofertas.show',$titulo['Id'])}}">Ver Ofertas</a>
         </div>
         <div class="row">
-          <a class="btn btn-danger" href="#" onclick="return confirm('<?php echo "¿Deseas borrar ".$titulo['Titulo']."?"?>')">Eliminar</a>
+          <a class="btn btn-danger" href="{{route('borrar_juego',$titulo['Id'])}}" onclick="return confirm('<?php echo "¿Deseas borrar ".$titulo['Titulo']."?"?>')">Eliminar</a>
         </div>
     </div>
     </div>

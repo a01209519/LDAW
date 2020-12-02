@@ -90,6 +90,12 @@ class VideojuegoController extends Controller
     public function destroy($id)
     {
         //
+        $bool = Videojuego::delete_user_game($id);
+        if($bool == true){
+            return redirect()->route('mis_juegos')->with('message','Se borró de manera exitosa el juego');
+        }else if($bool == false){
+             return redirect('mis_juegos')->with('error','Hubo un error al guardar');
+        }
     }
 
     public function mis_juegos(){
@@ -103,7 +109,7 @@ class VideojuegoController extends Controller
         $condiciones = Condicion::getConditions();
         //Si la función arroja falso, quiere decir que hay que volverse
         // a logear
-        if($juegos==false){
+        if($juegos=='false'){
             return redirect()->route('cerrar_sesion');
         }else{
             return view('misjuegos',[

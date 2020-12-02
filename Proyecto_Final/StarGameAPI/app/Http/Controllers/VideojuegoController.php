@@ -88,8 +88,19 @@ class VideojuegoController extends Controller
      * @param  \App\Videojuego  $videojuego
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Videojuego $videojuego)
+    public function destroy($id)
     {
         //
+        $user = auth()->user();
+        if($user!=null){
+            $bool = Videojuego::borrarJuego($id);
+            if($bool == true){
+                return response()->json(['success' => 'Success'], 200);
+            }else{
+                return response()->json(['error' => 'Error'], 500);
+            }
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
     }
 }
