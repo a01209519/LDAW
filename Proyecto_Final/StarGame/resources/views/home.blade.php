@@ -26,17 +26,37 @@
     </div>
     @endif
   </div>
+  @if(session('message'))
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{session('message')}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    </div>
+  </div>
+  @endif
+
+  @if(session('error'))
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{session('error')}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    </div>
+  </div>
+  @endif
 </div>
 
-@if($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
 @if(session('alerta'))
 <div aria-live="polite" aria-atomic="true" class="d-flex justify-content-center align-items-center" style="height: 200px;">
 <div class="toast">

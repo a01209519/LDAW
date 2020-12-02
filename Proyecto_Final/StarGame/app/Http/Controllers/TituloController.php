@@ -29,9 +29,9 @@ class TituloController extends Controller
         //
         $var = Titulo::save_Title($request);
         if($var == true){
-            return redirect('/');
+            return redirect('/')->with('error','No se pudo completar el registro');
         }else{
-            return redirect('/');
+            return redirect('/')->with('message','Titulo registrado');
         }
     }
 
@@ -54,12 +54,24 @@ class TituloController extends Controller
     }
 
     public function aceptar($id){
-        Titulo::aceptar_rechazar($id,1);
-        return redirect('sugerencias');
+        $bool = Titulo::aceptar_rechazar($id,1);
+        if($bool == false){
+            return redirect('sugerencias')->with('error','Ocurrió un error');
+        }else{
+            if($bool == 1){
+                return redirect('sugerencias')->with('message','Titulo Aceptado');;
+            }
+        }
     }
     public function rechazar($id){
-        Titulo::aceptar_rechazar($id,2);
-        return redirect('sugerencias');
+        $bool = Titulo::aceptar_rechazar($id,2);
+        if($bool == false){
+            return redirect('sugerencias')->with('error','Ocurrió un error');
+        }else{
+            if($bool == 2){
+                return redirect('sugerencias')->with('message','Titulo Rechazado');;
+            }
+        }
     }
 
     public function edit(Titulo $titulo)

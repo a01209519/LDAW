@@ -74,7 +74,12 @@ class Titulo extends Model
         if(!$response->failed()){
             if($response=='2'){
                 Storage::delete('/img/titulos/'.$id.'.jpg');
+                return 2;
+            }else{
+                return 1;
             }
+        }else{
+            return false;
         }
     }
 }

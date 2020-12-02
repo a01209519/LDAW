@@ -20,6 +20,20 @@
       <h2 class="titulos text-center text-uppercase">Sugerencias</h2>
     </div>
   </div>
+  @if(session('message'))
+  <div class="row">
+    <div class="col-4">
+    </div>
+    <div class="col-4">
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{session('message')}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    </div>
+  </div>
+  @endif
 </div>
 
 

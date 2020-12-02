@@ -41,9 +41,9 @@ class VideojuegoController extends Controller
         //
         $bool = Videojuego::save_user_game($request);
         if($bool==true){
-            return redirect()->route('mis_juegos')->with('mensaje','Se guardo el videojuego de manera exitosa');
+            return redirect()->route('mis_juegos')->with('message','Se guardo el videojuego de manera exitosa');
         }else if($bool = false){
-            return redirect('mis_juegos')->with('mensaje','Hubo un error al guardar');
+            return redirect('mis_juegos')->with('error','Hubo un error al guardar');
         }
     }
 
