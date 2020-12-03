@@ -28,4 +28,10 @@ class Aute extends Controller
     	return redirect('/');
 
     }
+
+    public function register(Request $request){
+        $data = $request->all();
+        Autent::Register($data);
+        return back();
+    }
 }

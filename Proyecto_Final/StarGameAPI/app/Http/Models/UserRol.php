@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 //use pivot
 
-class UserRol extends Pivot{
+class UserRol extends Model{
     /***************************************
 		CONFIGURACIÓN DEL MODELO
     ****************************************/

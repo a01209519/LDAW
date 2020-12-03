@@ -21,6 +21,7 @@ Route::get('/sugerencia_r/{id}','TituloController@rechazar')->name('rechazar_sug
 
 Route::post('/aute','Aute@iniciar_sesion')->name('iniciar_sesion');
 Route::get('/aute','Aute@cerrar_sesion')->name('cerrar_sesion');
+Route::post('/register', 'Aute@register')->name('registrar_ususario');
 
 Route::get('/user/gm','VideojuegoController@mis_juegos')->name('mis_juegos');
 Route::post('/user/gm','VideojuegoController@store')->name('guardar_mis_juegos');

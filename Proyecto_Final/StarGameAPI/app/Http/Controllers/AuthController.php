@@ -84,4 +84,15 @@ class AuthController extends Controller
             'expires_in' => auth()->factory()->getTTL() * 60
         ]);
     }
+
+     public function store(Request $request){
+
+        $input = $request->all();
+        Usuario::create($input);
+        return response()->json([
+            'resp' =>true,
+            'message' => 'Registro creado correctamente.'
+        ]);
+    }
+
 }

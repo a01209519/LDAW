@@ -44,17 +44,16 @@
                   <p align="center"> o </p>
                 </div>
                 <div class="row justify-content-center">
-                  <button type="button" class="btn btn-primary btn-sm" href="#">Registrate</button>
+                  <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalR">Registrarse</button>
                 </div>
                 @endif
-
                  
-
             </div>
         </div>
       </li>
     </div>
   </div>
   <x-modalLogin/>
+  <x-modalRegistrar/>
 </nav>
 

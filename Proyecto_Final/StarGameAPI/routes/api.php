@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Models\User;
 use App\Http\Controllers\ResenaController;
+use App\Http\Controllers\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,6 +52,8 @@ Route::post('oferta/aceptar','OfertaController@aceptar')->name('aceptar_oferta')
 Route::get('/ofertas/{id}','VideojuegoController@ofertas_videojuego');
 Route::get('/ofertas/aceptada/{id}','VideojuegoController@ofertas_videojuego_aceptada');
 Route::get('/videojuego/titulo/{id}/{id_user}','VideojuegoController@videojuegos_titulo');
+
+Route::post('register', [UsuarioController::class, 'store']);
 
 //Rutas para jwt
 

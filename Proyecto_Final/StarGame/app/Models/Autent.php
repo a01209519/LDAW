@@ -51,4 +51,10 @@ class Autent extends Model
             return false;
         }
     }
+
+    public static function Register(Request $data){
+        $response=Http::post('http://127.0.0.1:8001/api/register',$data);
+        
+         return $response->json();
+    }
 }
