@@ -33,6 +33,8 @@
               <ul>
                   <li><Strong>Version</Strong> {{$titulo['version']}}</li>
               </ul>
+              <?php $src = 'https://www.facebook.com/plugins/share_button.php?href=http%3A%2F%2F127.0.0.1%3A8000%2Ftitulos%'.$titulo['id'].'F1&layout=button_count&size=small&width=99&height=20&appId';?>
+              <iframe src="<?php echo $src?>" width="99" height="20" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
           </div>
 
           @if (empty($resena))
