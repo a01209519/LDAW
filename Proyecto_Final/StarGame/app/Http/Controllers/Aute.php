@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Autent;
 
+
 class Aute extends Controller
 {
     //
@@ -30,8 +31,7 @@ class Aute extends Controller
     }
 
     public function register(Request $request){
-        $data = $request->all();
-        Autent::Register($data);
+        Autent::Register($request);
         return back();
     }
 }

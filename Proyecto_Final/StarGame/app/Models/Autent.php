@@ -53,7 +53,10 @@ class Autent extends Model
     }
 
     public static function Register(Request $data){
-        $response=Http::post('http://127.0.0.1:8001/api/register',$data);
+        $request = $data->all();
+        $request['password'] = Hash::make($data->input('password'));
+
+        $response=Http::post('http://127.0.0.1:8001/api/register',$request);
         
          return $response->json();
     }
