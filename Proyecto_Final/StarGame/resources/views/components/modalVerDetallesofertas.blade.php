@@ -42,7 +42,7 @@
           <a class="btn btn-success" href="{{route('aceptar_oferta',$oferta['id_oferta'])}}">Aceptar</a>
         </div>
         <div class="row">
-          <a class="btn btn-danger" href="#">Rechazar</a>
+          <a class="btn btn-danger" href="{{route('rechazar_oferta',$oferta['id_oferta'])}}" onclick="return confirm('<?php echo "¿Deseas rechazar la oferta ".$oferta['Titulo']."?"?>')">Rechazar</a>
         </div>
     </div>
     @endif

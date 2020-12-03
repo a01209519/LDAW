@@ -77,6 +77,22 @@ class OfertaController extends Controller
         }
     }
 
+    public function rechazar(Request $request)
+    {
+        //
+        $user = auth()->user();
+        if($user!=null){
+            $bool = Oferta::rechazar_oferta($request);
+            if($bool == false){
+                return response()->json(['error' => 'Error'], 500);
+            }else{
+                return response()->json(['success' => 'Success'], 200);
+            }
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

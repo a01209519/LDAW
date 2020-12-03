@@ -102,7 +102,6 @@ class User extends Authenticatable implements JWTSubject
         $juegos = self::select('titulo.id as titulo_id','videojuego.id as id','titulo.nombre as Titulo','condicion.nombre as Condicion','plataforma.nombre as Plataforma','titulo.version as titulo_version')
                         ->Where([
                             ['users.id',$id],
-                            ['videojuego.estatus',1],
                         ])
                         ->join('videojuego','users.id','videojuego.id_usuario')
                         ->join('titulo','titulo.id','videojuego.id_titulo')

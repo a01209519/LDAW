@@ -49,4 +49,17 @@ class Oferta extends Model
             return false;
         }
     }
+
+     public static function rejectOffer($id){
+        $data = [
+            'id_oferta' => $id
+        ];
+        $response = Http::withToken(session('jwt'))->post(env('API').'oferta/rechazar',$data);
+
+        if(!$response->failed()){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
