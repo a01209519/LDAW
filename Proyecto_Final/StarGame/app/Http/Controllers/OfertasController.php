@@ -104,6 +104,17 @@ class OfertasController extends Controller
         }
     }
 
+    public function rechazar_oferta($id)
+    {
+        //
+        $response = Oferta::rejectOffer($id);
+        if($response!=false){
+            return back()->with('message','Oferta rechazada');
+        }else{
+            return redirect()->route('cerrar_sesion');
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *

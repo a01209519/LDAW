@@ -58,7 +58,7 @@ class Videojuego extends Model{
 		$videojuego =self::select('titulo.id as titulo_id','videojuego.id as id','titulo.nombre as Titulo','condicion.nombre as Condicion','plataforma.nombre as Plataforma','titulo.version as titulo_version')
                         ->Where([
                             ['videojuego.id',$id],
-                            ['videojuego.estatus',1],
+
                         ])
                         ->join('titulo','titulo.id','videojuego.id_titulo')
                         ->join('plataforma','plataforma.id','videojuego.id_plataforma')

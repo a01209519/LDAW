@@ -48,6 +48,7 @@ Route::resource('videojuego','VideojuegoController');
 
 Route::resource('oferta','OfertaController');
 Route::post('oferta/aceptar','OfertaController@aceptar')->name('aceptar_oferta');
+Route::post('oferta/rechazar','OfertaController@rechazar')->name('rechazar_oferta');
 
 Route::get('/ofertas/{id}','VideojuegoController@ofertas_videojuego');
 Route::get('/ofertas/aceptada/{id}','VideojuegoController@ofertas_videojuego_aceptada');
