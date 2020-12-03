@@ -57,9 +57,24 @@ class OfertaController extends Controller
      * @param  \App\Oferta  $oferta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Oferta $oferta)
+
+    public function update(){
+
+    }
+    public function aceptar(Request $request)
     {
         //
+        $user = auth()->user();
+        if($user!=null){
+            $bool = Oferta::aceptar_oferta($request);
+            if($bool == false){
+                return response()->json(['error' => 'Error'], 500);
+            }else{
+                return response()->json(['success' => 'Success'], 200);
+            }
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
     }
 
     /**

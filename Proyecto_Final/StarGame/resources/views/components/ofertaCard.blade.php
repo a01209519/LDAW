@@ -1,4 +1,3 @@
-
 <div class="col-mb-4">
 <div class="card " style="width: 13rem; margin-top: 2rem;">
   <img class="card-img-top img-fluid" src="{{ url('img/titulos/'. $oferta['id_titulo'] .'.jpg') }}" alt="Card image cap" style="height: 19rem">
@@ -12,11 +11,10 @@
         Ver Detalles
     </button>
     
-
       <x-modalVerDetallesofertas :id="$oferta['id_titulo']" :oferta="$oferta"/>
- 
-    
-
+    </div>
   </div>
 </div>
-</div>
+
+
+

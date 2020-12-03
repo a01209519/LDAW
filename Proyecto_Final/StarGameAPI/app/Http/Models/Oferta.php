@@ -4,6 +4,7 @@ namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Oferta extends Model{//pivot
     
@@ -40,5 +41,21 @@ class Oferta extends Model{//pivot
 		}
 	}
 
-	
+	public static function aceptar_oferta(Request $request){
+		//$id = $request->input('id_oferta');
+		$id = $request->input('id_oferta');
+		$oferta = Oferta::find($id);
+		$id_videojuego = $oferta->id_videojuego_oferta;
+		$oferta->id_estatus = 1;
+		DB::beginTransaction();
+		$oferta->save();
+		$rechazados = self::select('oferta.id')->Where([['oferta.id_estatus','!=',1],['oferta.id_videojuego_oferta',$id_videojuego]])->delete();
+		DB::commit();
+		if($oferta->save()){
+			return true;
+		}else{
+			DB::rollback();
+			return false;
+		}
+	}
 }

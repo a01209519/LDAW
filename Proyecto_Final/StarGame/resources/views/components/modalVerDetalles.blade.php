@@ -24,7 +24,9 @@
 
       <div class="modal-footer">
           <a class="btn btn-secondary" href="{{url('titulos/'. $titulo['id'])}}">Ver detalles del titulo</a>
+          @if(session('id'))
           <a class="btn btn-info" href="{{route('juegos_disponibles',$titulo['id'])}}">Ver videojuegos disponibles</a>
+          @endif
       </div>
 
     </div>

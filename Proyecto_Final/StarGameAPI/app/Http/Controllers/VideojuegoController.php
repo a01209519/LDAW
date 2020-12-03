@@ -53,6 +53,17 @@ class VideojuegoController extends Controller
 
     }
 
+    public function ofertas_videojuego_aceptada($id){
+        
+        $user = auth()->user();
+        if($user!=null){
+            return $ofertas = Videojuego::videojuego_oferta_aceptada($id);
+        }else{
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
+
+    }
+
     /**
      * Display the specified resource.
      *

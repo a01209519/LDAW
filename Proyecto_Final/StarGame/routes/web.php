@@ -30,3 +30,4 @@ Route::get('/titulos/juegos/{id}','VideojuegoController@juegos_disponibles')->na
 
 Route::post('/resena','ResenaController@registrar_resena')->name('registrar_resena');
 Route::resource('/ofertas','OfertasController');
+Route::get('/ofertas/aceptar/{id}','OfertasController@aceptar_oferta')->name('aceptar_oferta');

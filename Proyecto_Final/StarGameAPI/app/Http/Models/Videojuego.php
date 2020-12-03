@@ -103,6 +103,45 @@ class Videojuego extends Model{
 
     }
 
+
+    public static function videojuego_oferta_aceptada($id){
+        /*
+        select titulo.nombre from titulo, oferta, videojuego Where videojuego.id = oferta.id_videojuego_recibe AND titulo.id = videojuego.id AND oferta.id_videojuego_oferta = 3 AND oferta.id_videojuego_recibe != 3
+        */
+        $ofertas = self::select('titulo.nombre as Titulo','titulo.id as id_titulo','users.id as id_usuario','plataforma.nombre as Plataforma','condicion.nombre as Condicion', 'titulo.version as Version','videojuego.id as id_videojuego','oferta.id as id_oferta','users.telefono as telefono','users.nombre as Nombre')
+                ->Where([
+                    ['oferta.id_videojuego_oferta',$id],
+                    ['oferta.id_videojuego_recibe','!=',$id],
+                    ['oferta.id_estatus',1]
+                ])
+                ->join('oferta','videojuego.id','oferta.id_videojuego_recibe')
+                ->join('titulo','titulo.id','videojuego.id_titulo')
+                ->join('plataforma','plataforma.id','videojuego.id_plataforma')
+                ->join('condicion','condicion.id','videojuego.id_condicion')
+                ->join('users','users.id','videojuego.id_usuario')
+                ->get();
+
+        $response = [];
+        foreach ($ofertas as $item) {
+            $id = $item->id_videojuego;
+            $response[$id] = [
+                'Titulo' => $item->Titulo,
+                'id_titulo' =>$item->id_titulo,
+                'id_usuario'=>$item->id_usuario,
+                'Plataforma'=>$item->Plataforma,
+                'Condicion'=>$item->Condicion,
+                'Version'=>$item->Version,
+                'id_videojuego'=>$item->id_videojuego,
+                'id_oferta'=>$item->id_oferta,
+                'Telefono'=>$item->telefono,
+                'Nombre'=>$item->Nombre
+            ];
+        }
+        return $response;
+
+
+    }
+
     public static function borrarJuego($id){
         $videojuego = self::find($id);
         $videojuego->delete();

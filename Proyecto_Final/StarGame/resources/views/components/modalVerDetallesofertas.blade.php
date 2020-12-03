@@ -21,18 +21,31 @@
           <div class="row justify-content-left">
             <p class="subtitulos"><strong>Condición:&nbsp </strong>{{$oferta['Condicion']}}</p>
           </div>
-        </div>
+          @if(isset($oferta['Telefono']))
+          <hr />
+        <h3 class="subtitulos">DATOS DE CONTACTO</strong></h3></center>
+        <br />
+        <div class="row justify-content-left">
+            <p class="subtitulos"><strong>Nombre:&nbsp </strong>{{$oferta['Nombre']}}</p>
+          </div>
+          <div class="row justify-content-left">
+            <p class="subtitulos"><strong>Teléfono:&nbsp </strong>{{$oferta['Telefono']}}</p>
+          </div>
+        @endif
 
       </div>
+    </div>
 
+      @if(!isset($oferta['Telefono']))
       <div class="modal-footer">
         <div class="row">
-          <a class="btn btn-secondary" href="">Ver Ofertas</a>
+          <a class="btn btn-success" href="{{route('aceptar_oferta',$oferta['id_oferta'])}}">Aceptar</a>
         </div>
         <div class="row">
-          <a class="btn btn-danger" href="#">Eliminar</a>
+          <a class="btn btn-danger" href="#">Rechazar</a>
         </div>
     </div>
+    @endif
     </div>
   </div>
 </div>

@@ -19,13 +19,7 @@
     <div class="col-s4">
       <h2 class="titulos text-center text-uppercase">Videojuegos</h2>
     </div>
-    @if(session('id'))
-    <div class="col-1">
-      <br>
-      <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#ModalRegistrarJuego"><i class="fas fa-plus"></i></button>
-
-    </div>
-    @endif
+    
   </div>
   @if(session('message'))
   <div class="row">
